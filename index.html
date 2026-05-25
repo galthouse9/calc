@@ -105,22 +105,40 @@
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Base Fare ($)</label>
-                                <input type="number" id="flight-fare" value="590" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-500 transition-colors">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="p-3 bg-gray-900/30 rounded-xl border border-gray-700/30 space-y-3">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 block border-b border-gray-800 pb-1">💵 Cash Ticket Path</span>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Base Fare ($)</label>
+                                    <input type="number" id="flight-fare" value="590" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Cash Path Taxes/Fees ($)</label>
+                                    <input type="number" id="flight-cash-taxes" value="60" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Ticket Taxes ($)</label>
-                                <input type="number" id="flight-taxes-fees" value="60" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-500 transition-colors">
+
+                            <div class="p-3 bg-gray-900/30 rounded-xl border border-gray-700/30 space-y-3">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-blue-400 block border-b border-gray-800 pb-1">🎫 Award Ticket Path</span>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Actual Award Miles</label>
+                                    <input type="number" id="flight-miles" value="40000" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Award Path Taxes/Fees ($)</label>
+                                    <input type="number" id="flight-award-taxes" value="5.60" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Award Miles</label>
-                                <input type="number" id="flight-miles" value="40000" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-500 transition-colors">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Segments (PQF)</label>
-                                <input type="number" id="flight-pqf-input" value="2" min="1" max="7" oninput="calculateFlight()" class="w-full bg-gray-900 border border-blue-500 border-2 rounded-xl px-4 py-3 text-white font-bold focus:outline-none transition-colors">
+
+                            <div class="p-3 bg-gray-900/30 rounded-xl border border-gray-700/30 flex flex-col justify-between gap-3">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-teal-400 block border-b border-gray-800 pb-1">Route Metrics</span>
+                                <div id="card-pqf-entry-wrapper">
+                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Segments (PQF)</label>
+                                    <input type="number" id="flight-pqf-input" value="2" min="1" max="7" oninput="calculateFlight()" class="w-full bg-gray-900 border border-blue-500 border-2 rounded-lg px-3 py-2 text-sm font-bold text-white focus:outline-none">
+                                </div>
+                                <div class="text-[10px] text-gray-500 leading-normal bg-gray-900/50 p-2 rounded-lg border border-gray-800">
+                                    💡 International award fuel surcharges often decouple completely from standard cash ticket tax pricing.
+                                </div>
                             </div>
                         </div>
 
@@ -174,7 +192,7 @@
             </div>
 
             <div class="space-y-6">
-                <div class="bg-gradient-to-b from-gray-800 to-gray-850 rounded-2xl p-6 shadow-xl border border-gray-700/50 flex flex-col justify-between h-full min-h-[520px]">
+                <div class="bg-gradient-to-b from-gray-800 to-gray-850 rounded-2xl p-6 shadow-xl border border-gray-700/50 flex flex-col justify-between h-full min-h-[540px]">
                     <div>
                         <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">The Verdict</h3>
                         
@@ -186,7 +204,7 @@
 
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
-                                <span id="lbl-cpp" class="text-gray-400">Raw Value Per Mile</span>
+                                <span id="lbl-cpp" class="text-gray-400">True Value Per Mile</span>
                                 <span id="out-cpp" class="font-mono font-bold text-white">0.00¢</span>
                             </div>
                             <div id="row-forfeited-pts" class="flex justify-between items-center py-2 border-b border-gray-700/50">
@@ -237,17 +255,14 @@
 
     <script>
         let currentTab = 'flight';
-        let currentUser = 'greg'; // Master Default State
+        let currentUser = 'greg';
 
-        // --- GLOBAL HARDCODED VALUATION CONFIGURATIONS ---
-        // If United or Marriott overhaul point baseline pricing, alter these thresholds
         const UA_MILE_VAL = 0.0135; 
         const MARRIOTT_PT_VAL = 0.0085; 
 
-        // Profile Targets System Constants
         const TARGET_PQP_GREG = 22000;
         const TARGET_PQF_GREG = 60;
-        const TARGET_PQP_SARAH = 28000; // Pure PQP tracking vector skipping segments
+        const TARGET_PQP_SARAH = 28000;
 
         function switchUser(user) {
             currentUser = user;
@@ -260,9 +275,8 @@
 
             const pqfProgressBlock = document.getElementById('pqf-progress-block');
             const subInputPqfBlock = document.getElementById('sub-input-pqf-block');
-            const segmentInputCard = document.getElementById('flight-pqf-input').parentElement;
+            const segmentInputWrapper = document.getElementById('card-pqf-entry-wrapper');
 
-            // Overhaul Profile Panels Configuration States
             if (user === 'greg') {
                 btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-blue-600 text-white shadow transition-all";
                 btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
@@ -279,7 +293,7 @@
                 
                 pqfProgressBlock.classList.remove('hidden');
                 subInputPqfBlock.classList.remove('hidden');
-                segmentInputCard.classList.remove('hidden');
+                segmentInputWrapper.classList.remove('hidden');
             } else {
                 btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-purple-600 text-white shadow transition-all";
                 btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
@@ -296,7 +310,7 @@
                 
                 pqfProgressBlock.classList.add('hidden');
                 subInputPqfBlock.classList.add('hidden');
-                segmentInputCard.classList.add('hidden');
+                segmentInputWrapper.classList.add('hidden');
             }
 
             loadUserProfileValues();
@@ -396,7 +410,7 @@
                 giftedMetricsRow.classList.add('hidden');
                 bannerTracker.classList.remove('hidden'); 
                 
-                document.getElementById('lbl-cpp').innerText = "Raw Value Per Mile";
+                document.getElementById('lbl-cpp').innerText = "True Value Per Mile";
                 document.getElementById('lbl-lost-pts').innerText = "Net Points Forfeited (if Cash)";
                 document.getElementById('lbl-award-path-pqp').innerText = "🎫 Your Award Path PQP";
                 document.getElementById('lbl-summary-left').innerText = "Net Cash Path Outlay:";
@@ -413,9 +427,12 @@
         }
 
         function calculateFlight() {
+            // UNTANGLED MATHEMATICAL FARE vs TAX DECOUPLING
             let fare = parseFloat(document.getElementById('flight-fare').value) || 0;
-            let taxesFees = parseFloat(document.getElementById('flight-taxes-fees').value) || 0;
-            let totalCashCost = fare + taxesFees;
+            let cashTaxes = parseFloat(document.getElementById('flight-cash-taxes').value) || 0;
+            let awardTaxes = parseFloat(document.getElementById('flight-award-taxes').value) || 0;
+            
+            let totalCashPathOutofPocket = fare + cashTaxes;
             let miles = parseFloat(document.getElementById('flight-miles').value) || 0;
             let passengerType = document.getElementById('flight-passenger-type').value;
 
@@ -440,21 +457,21 @@
                 localStorage.setItem(prefix + 'ytd_pqf', currentPQF);
             }
 
-            // --- REVENUE CASH VECTOR CALCULATIONS (11x Elite Status + 6x Credit Card Spend) ---
+            // --- 1. CASH PATH METRICS REFACTOR ---
             let cashMilesFromFare = fare * 11; 
-            let cashMilesFromCard = totalCashCost * 6; 
+            let cashMilesFromCard = totalCashPathOutofPocket * 6; // Earns on complete portfolio transaction
             let totalCashMilesEarned = cashMilesFromFare + cashMilesFromCard;
 
             let cashPqpFromFlight = Math.round(fare);
-            let cashPqpFromCard = Math.round(totalCashCost / 15); 
+            let cashPqpFromCard = Math.round(totalCashPathOutofPocket / 15); 
             let totalCashPathPQP = cashPqpFromFlight + cashPqpFromCard;
 
             if (passengerType === 'family') {
                 let reimbursement = parseFloat(document.getElementById('flight-reimbursement').value) || 0;
-                let trueCashProfit = reimbursement - taxesFees; 
+                let trueCashProfit = reimbursement - awardTaxes; // Deducts whatever actual custom award tax applies
                 let cashYieldPerMile = miles > 0 ? trueCashProfit / miles : 0;
 
-                let yourAwardCardPqp = Math.round(taxesFees / 15); 
+                let yourAwardCardPqp = Math.round(awardTaxes / 15); 
                 let giftedFlightPqp = Math.round(miles / 100);    
                 
                 document.getElementById('out-cpp').innerText = (cashYieldPerMile * 100).toFixed(2) + '¢';
@@ -480,6 +497,7 @@
                 }
 
             } else {
+                // SELF FLYING TRACK METRICS
                 document.getElementById('txt-current-pqp').innerText = currentPQP.toLocaleString();
                 let pqpPct = Math.min((currentPQP / targetPQP) * 100, 100);
                 document.getElementById('bar-pqp').style.width = pqpPct + '%';
@@ -491,10 +509,11 @@
                     document.getElementById('out-pqf').innerText = `Both Paths Log +${segments} PQF`;
                 }
 
+                // --- 2. AWARD PATH METRICS REFACTOR (Using isolated Award Taxes variable) ---
                 let awardPqpFromFlight = Math.round(miles / 100);
-                let awardPqpFromCard = Math.round(taxesFees / 15);
+                let awardPqpFromCard = Math.round(awardTaxes / 15); // Evaluates award taxes card PQP accurately
                 let totalAwardPathPQP = awardPqpFromFlight + awardPqpFromCard;
-                let totalAwardMilesEarned = taxesFees * 6;
+                let totalAwardMilesEarned = awardTaxes * 6; // Earns card spend miles on award taxes portfolio row
 
                 let netPointsLostIfCash = totalCashMilesEarned - totalAwardMilesEarned;
 
@@ -519,10 +538,11 @@
                 }
 
                 let pointsLostValue = netPointsLostIfCash * UA_MILE_VAL;
-                let netCashCost = totalCashCost - pointsLostValue;
-                let netAwardCost = taxesFees + (miles * UA_MILE_VAL);
+                let netCashCost = totalCashPathOutofPocket - pointsLostValue;
+                let netAwardCost = awardTaxes + (miles * UA_MILE_VAL);
                 
-                let cpp = miles > 0 ? (totalCashCost - taxesFees) / miles : 0;
+                // TRUE VAL PER MILE EQUATION: Calculates net out-of-pocket cash savings delta divided by miles burnt
+                let cpp = miles > 0 ? (totalCashPathOutofPocket - awardTaxes) / miles : 0;
                 let adjustedTargetVal = UA_MILE_VAL * urgencyMultiplier;
 
                 document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
@@ -552,7 +572,6 @@
             let totalHotelCash = baseRate + taxesFees;
             let points = parseFloat(document.getElementById('hotel-points').value) || 0;
 
-            // MARRIOTT CASH PATH EQUATIONS (10x Base + 7.5x Status Bonus + 6x Credit Card Folio Spend)
             let pointsFromBase = baseRate * 17.5;
             let pointsFromCard = totalHotelCash * 6;
             let totalPointsEarnedIfCash = pointsFromBase + pointsFromCard;
