@@ -28,31 +28,49 @@
             </div>
         </header>
 
-        <div class="bg-gray-950/60 rounded-2xl p-4 mb-6 border border-gray-800 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            <div id="cfg-card-greg" class="p-3 rounded-xl border border-blue-500/30 bg-blue-950/10 transition-all">
-                <div class="font-bold text-blue-400 flex items-center gap-1.5 mb-1">
-                    <span>👤 Greg's Profile Rules</span>
-                    <span class="px-1.5 py-0.5 bg-blue-900/40 text-[10px] text-blue-300 rounded border border-blue-700/30">Active</span>
+        <div class="bg-gray-950/60 rounded-2xl p-4 mb-6 border border-gray-800 space-y-4 text-xs">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div id="cfg-card-greg" class="p-3 rounded-xl border border-blue-500/30 bg-blue-950/10 transition-all">
+                    <div class="font-bold text-blue-400 flex items-center gap-1.5 mb-1">
+                        <span>👤 Greg's Profile Rules</span>
+                        <span class="px-1.5 py-0.5 bg-blue-900/40 text-[10px] text-blue-300 rounded border border-blue-700/30">Active</span>
+                    </div>
+                    <ul class="space-y-1 text-gray-400 font-mono text-[11px]">
+                        <li>• UA Status: <span class="text-white">Premier 1K (11x Miles)</span></li>
+                        <li>• UA Card: <span class="text-white">United Club Card (6x Miles, 1 PQP/$15)</span></li>
+                        <li>• UA Target: <span class="text-white">22,000 PQP & 60 PQF Matrix</span></li>
+                        <li>• Marriott Status: <span class="text-white">Lifetime Titanium (17.5x Base, 6x Card)</span></li>
+                    </ul>
                 </div>
-                <ul class="space-y-1 text-gray-400 font-mono text-[11px]">
-                    <li>• UA Status: <span class="text-white">Premier 1K (11x Miles)</span></li>
-                    <li>• UA Card: <span class="text-white">United Club Card (6x Miles, 1 PQP/$15)</span></li>
-                    <li>• UA Target: <span class="text-white">22,000 PQP & 60 PQF Matrix</span></li>
-                    <li>• Marriott Status: <span class="text-white">Lifetime Titanium (17.5x Base, 6x Card)</span></li>
-                </ul>
+                
+                <div id="cfg-card-sarah" class="p-3 rounded-xl border border-gray-800 bg-gray-900/20 transition-all opacity-50">
+                    <div class="font-bold text-purple-400 flex items-center gap-1.5 mb-1">
+                        <span>👤 Sarah's Profile Rules</span>
+                        <span id="cfg-tag-sarah" class="hidden px-1.5 py-0.5 bg-purple-900/40 text-[10px] text-purple-300 rounded border border-purple-700/30">Active</span>
+                    </div>
+                    <ul class="space-y-1 text-gray-400 font-mono text-[11px]">
+                        <li>• UA Status: <span class="text-white">Premier 1K (11x Miles)</span></li>
+                        <li>• UA Card: <span class="text-white">United Club Card (6x Miles, 1 PQP/$15)</span></li>
+                        <li>• UA Target: <span class="text-white">28,000 Pure PQP Skipping Segments</span></li>
+                        <li>• Marriott Status: <span class="text-white">Annual Titanium (Requires 75 Nights/Yr)</span></li>
+                    </ul>
+                </div>
             </div>
-            
-            <div id="cfg-card-sarah" class="p-3 rounded-xl border border-gray-800 bg-gray-900/20 transition-all opacity-50">
-                <div class="font-bold text-purple-400 flex items-center gap-1.5 mb-1">
-                    <span>👤 Sarah's Profile Rules</span>
-                    <span id="cfg-tag-sarah" class="hidden px-1.5 py-0.5 bg-purple-900/40 text-[10px] text-purple-300 rounded border border-purple-700/30">Active</span>
+
+            <div class="pt-3 border-t border-gray-900 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[11px] font-mono text-gray-500">
+                <div class="flex flex-wrap gap-4 items-center w-full sm:w-auto">
+                    <div class="flex items-center gap-2 bg-gray-900/80 px-2 py-1 rounded border border-gray-800">
+                        <label for="input-ua-val" class="text-gray-400 font-bold">✈️ UA Baseline (¢):</label>
+                        <input type="number" id="input-ua-val" value="1.35" step="0.05" oninput="updateValuationBaselines()" class="w-14 bg-gray-950 text-amber-400 font-bold border border-gray-700 rounded px-1 py-0.5 focus:outline-none text-center">
+                    </div>
+                    <div class="flex items-center gap-2 bg-gray-900/80 px-2 py-1 rounded border border-gray-800">
+                        <label for="input-marriott-val" class="text-gray-400 font-bold">🏨 Marriott Baseline (¢):</label>
+                        <input type="number" id="input-marriott-val" value="0.85" step="0.05" oninput="updateValuationBaselines()" class="w-14 bg-gray-950 text-amber-400 font-bold border border-gray-700 rounded px-1 py-0.5 focus:outline-none text-center">
+                    </div>
                 </div>
-                <ul class="space-y-1 text-gray-400 font-mono text-[11px]">
-                    <li>• UA Status: <span class="text-white">Premier 1K (11x Miles)</span></li>
-                    <li>• UA Card: <span class="text-white">United Club Card (6x Miles, 1 PQP/$15)</span></li>
-                    <li>• UA Target: <span class="text-white">28,000 Pure PQP Skipping Segments</span></li>
-                    <li>• Marriott Status: <span class="text-white">Annual Titanium (Requires 75 Nights/Yr)</span></li>
-                </ul>
+                <div class="px-2 py-1 bg-gray-900 rounded border border-gray-800 text-[10px] whitespace-nowrap self-end sm:self-auto">
+                    🕒 Master Rules Audited: <span class="text-gray-400 font-semibold">May 2026</span>
+                </div>
             </div>
         </div>
 
@@ -257,12 +275,36 @@
         let currentTab = 'flight';
         let currentUser = 'greg';
 
-        const UA_MILE_VAL = 0.0135; 
-        const MARRIOTT_PT_VAL = 0.0085; 
+        // PROGRAM VALUATIONS CONFIGURATIONS (With Live Read Defaults)
+        let defaultUAMileVal = 0.0135; 
+        let defaultMarriottPtVal = 0.0085; 
 
         const TARGET_PQP_GREG = 22000;
         const TARGET_PQF_GREG = 60;
         const TARGET_PQP_SARAH = 28000;
+
+        // Fetch dynamic editable metrics from elements
+        function getUAMileVal() {
+            let val = parseFloat(document.getElementById('input-ua-val').value);
+            return (!isNaN(val) && val > 0) ? (val / 100) : defaultUAMileVal;
+        }
+
+        function getMarriottPtVal() {
+            let val = parseFloat(document.getElementById('input-marriott-val').value);
+            return (!isNaN(val) && val > 0) ? (val / 100) : defaultMarriottPtVal;
+        }
+
+        function updateValuationBaselines() {
+            // Save modified configurations directly to global localStorage memory
+            localStorage.setItem('cfg_ua_mile_val', document.getElementById('input-ua-val').value);
+            localStorage.setItem('cfg_marriott_pt_val', document.getElementById('input-marriott-val').value);
+
+            if (currentTab === 'flight') {
+                calculateFlight();
+            } else {
+                calculateHotel();
+            }
+        }
 
         function switchUser(user) {
             currentUser = user;
@@ -427,7 +469,6 @@
         }
 
         function calculateFlight() {
-            // UNTANGLED MATHEMATICAL FARE vs TAX DECOUPLING
             let fare = parseFloat(document.getElementById('flight-fare').value) || 0;
             let cashTaxes = parseFloat(document.getElementById('flight-cash-taxes').value) || 0;
             let awardTaxes = parseFloat(document.getElementById('flight-award-taxes').value) || 0;
@@ -457,9 +498,11 @@
                 localStorage.setItem(prefix + 'ytd_pqf', currentPQF);
             }
 
-            // --- 1. CASH PATH METRICS REFACTOR ---
+            // Grab dynamic editable valuation baseline
+            let currentUAMileValueConstant = getUAMileVal();
+
             let cashMilesFromFare = fare * 11; 
-            let cashMilesFromCard = totalCashPathOutofPocket * 6; // Earns on complete portfolio transaction
+            let cashMilesFromCard = totalCashPathOutofPocket * 6; 
             let totalCashMilesEarned = cashMilesFromFare + cashMilesFromCard;
 
             let cashPqpFromFlight = Math.round(fare);
@@ -468,7 +511,7 @@
 
             if (passengerType === 'family') {
                 let reimbursement = parseFloat(document.getElementById('flight-reimbursement').value) || 0;
-                let trueCashProfit = reimbursement - awardTaxes; // Deducts whatever actual custom award tax applies
+                let trueCashProfit = reimbursement - awardTaxes; 
                 let cashYieldPerMile = miles > 0 ? trueCashProfit / miles : 0;
 
                 let yourAwardCardPqp = Math.round(awardTaxes / 15); 
@@ -482,9 +525,16 @@
                 document.getElementById('out-gifted-pqp-msg').innerText = `+${giftedFlightPqp.toLocaleString()} PQP & +${segments} PQF`;
 
                 document.getElementById('summary-cash-path').innerText = '$' + reimbursement.toFixed(2);
-                document.getElementById('summary-award-path').innerText = '$' + (miles * UA_MILE_VAL).toFixed(2);
+                document.getElementById('summary-award-path').innerText = '$' + (miles * currentUAMileValueConstant).toFixed(2);
 
-                if (cashYieldPerMile >= UA_MILE_VAL) {
+                // FAMILY TOSS UP STRATEGY LOGIC ($25 boundary)
+                let familyDelta = Math.abs(reimbursement - (miles * currentUAMileValueConstant));
+                if (familyDelta <= 25) {
+                    title.innerText = "STRATEGIC TOSS-UP";
+                    desc.innerText = `The reimbursement yield matches your pool valuation closely (within $25 margin). Proceed based on immediate household cash needs.`;
+                    icon.innerText = "⚖️";
+                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-slate-800 border-slate-600 text-slate-300 shadow-lg shadow-slate-950/20";
+                } else if (cashYieldPerMile >= currentUAMileValueConstant) {
                     title.innerText = "PROCEED WITH AWARD";
                     desc.innerText = `Excellent trade! Your family buys your miles at ${(cashYieldPerMile*100).toFixed(2)}¢ each.`;
                     icon.innerText = "💰🤝";
@@ -509,11 +559,10 @@
                     document.getElementById('out-pqf').innerText = `Both Paths Log +${segments} PQF`;
                 }
 
-                // --- 2. AWARD PATH METRICS REFACTOR (Using isolated Award Taxes variable) ---
                 let awardPqpFromFlight = Math.round(miles / 100);
-                let awardPqpFromCard = Math.round(awardTaxes / 15); // Evaluates award taxes card PQP accurately
+                let awardPqpFromCard = Math.round(awardTaxes / 15); 
                 let totalAwardPathPQP = awardPqpFromFlight + awardPqpFromCard;
-                let totalAwardMilesEarned = awardTaxes * 6; // Earns card spend miles on award taxes portfolio row
+                let totalAwardMilesEarned = awardTaxes * 6; 
 
                 let netPointsLostIfCash = totalCashMilesEarned - totalAwardMilesEarned;
 
@@ -537,20 +586,27 @@
                     urgencyMultiplier = 1.25; 
                 }
 
-                let pointsLostValue = netPointsLostIfCash * UA_MILE_VAL;
+                let pointsLostValue = netPointsLostIfCash * currentUAMileValueConstant;
                 let netCashCost = totalCashPathOutofPocket - pointsLostValue;
-                let netAwardCost = awardTaxes + (miles * UA_MILE_VAL);
+                let netAwardCost = awardTaxes + (miles * currentUAMileValueConstant);
                 
-                // TRUE VAL PER MILE EQUATION: Calculates net out-of-pocket cash savings delta divided by miles burnt
                 let cpp = miles > 0 ? (totalCashPathOutofPocket - awardTaxes) / miles : 0;
-                let adjustedTargetVal = UA_MILE_VAL * urgencyMultiplier;
+                let adjustedTargetVal = currentUAMileValueConstant * urgencyMultiplier;
 
                 document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
                 document.getElementById('out-points-lost').innerText = Math.round(netPointsLostIfCash).toLocaleString();
                 document.getElementById('summary-cash-path').innerText = '$' + netCashCost.toFixed(2);
                 document.getElementById('summary-award-path').innerText = '$' + netAwardCost.toFixed(2);
 
-                if (cpp >= adjustedTargetVal) {
+                // DYNAMIC TOSS UP CHECKER ($25 margin window)
+                let financialSpread = Math.abs(netCashCost - netAwardCost);
+
+                if (financialSpread <= 25 && urgencyMultiplier === 1.0) {
+                    title.innerText = "STRATEGIC TOSS-UP";
+                    desc.innerText = `The financial spread is negligible ($${financialSpread.toFixed(2)} delta). Both paths deliver virtually equal efficiency. Choose based on cash preference vs mileage pool size.`;
+                    icon.innerText = "⚖️";
+                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-slate-800 border-slate-600 text-slate-300 shadow-lg shadow-slate-950/20";
+                } else if (cpp >= adjustedTargetVal) {
                     title.innerText = "BURN MILES";
                     desc.innerText = `Excellent redemption value. Plus, you pull down +${totalAwardPathPQP} PQP from the award tracking matrix.`;
                     icon.innerText = "🔥 ✈️";
@@ -572,13 +628,15 @@
             let totalHotelCash = baseRate + taxesFees;
             let points = parseFloat(document.getElementById('hotel-points').value) || 0;
 
+            let currentMarriottValueConstant = getMarriottPtVal();
+
             let pointsFromBase = baseRate * 17.5;
             let pointsFromCard = totalHotelCash * 6;
             let totalPointsEarnedIfCash = pointsFromBase + pointsFromCard;
 
-            let pointsLostValue = totalPointsEarnedIfCash * MARRIOTT_PT_VAL;
+            let pointsLostValue = totalPointsEarnedIfCash * currentMarriottValueConstant;
             let netCashCost = totalHotelCash - pointsLostValue;
-            let netAwardCost = points * MARRIOTT_PT_VAL;
+            let netAwardCost = points * currentMarriottValueConstant;
             let cpp = points > 0 ? totalHotelCash / points : 0;
 
             document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
@@ -591,10 +649,18 @@
             const desc = document.getElementById('verdict-desc');
             const icon = document.getElementById('verdict-icon');
 
-            if (cpp >= MARRIOTT_PT_VAL) {
+            // HOTEL TOSS UP CHECKER ($25 margin window)
+            let hotelSpread = Math.abs(netCashCost - netAwardCost);
+
+            if (hotelSpread <= 25) {
+                title.innerText = "STRATEGIC TOSS-UP";
+                desc.innerText = `Net financial gap is a dead-heat ($${hotelSpread.toFixed(2)} spread). Choose freely based on your preference to hoard points or preserve cash fluidities.`;
+                icon.innerText = "⚖️";
+                banner.className = "p-4 rounded-xl text-center mb-6 border bg-slate-800 border-slate-600 text-slate-300 shadow-lg shadow-slate-950/20";
+            } else if (cpp >= currentMarriottValueConstant) {
                 title.innerText = "BURN POINTS";
                 desc.innerText = currentUser === 'greg'
-                    ? `Excellent value. Your points yield is higher than your baseline target of ${(MARRIOTT_PT_VAL*100).toFixed(2)}¢.`
+                    ? `Excellent value. Your points yield is higher than your baseline target of ${(currentMarriottValueConstant*100).toFixed(2)}¢.`
                     : `Excellent value. Burns points safely. Award stays preserve your Titanium Night accrual toward re-earning your annual status threshold.`;
                 icon.innerText = "🔥 🏨";
                 banner.className = "p-4 rounded-xl text-center mb-6 border bg-emerald-950/40 border-emerald-500/40 text-emerald-300 shadow-lg shadow-emerald-900/10";
@@ -609,6 +675,17 @@
         }
 
         window.onload = function() {
+            // Memory Retrieval Engine: Parse customizable valuation numbers if stored
+            let storedUABaseline = localStorage.getItem('cfg_ua_mile_val');
+            let storedMarriottBaseline = localStorage.getItem('cfg_marriott_pt_val');
+
+            if (storedUABaseline !== null) {
+                document.getElementById('input-ua-val').value = storedUABaseline;
+            }
+            if (storedMarriottBaseline !== null) {
+                document.getElementById('input-marriott-val').value = storedMarriottBaseline;
+            }
+
             switchUser('greg');
         };
     </script>
