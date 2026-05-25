@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Loyalty Value Optimizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen font-sans antialiased">
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <header class="border-b border-gray-800 pb-6 mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+                <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+                    Value Optimizer
+                </h1>
+                <p class="text-sm text-gray-400 mt-1">Strategic Cash vs. Award Decision Engine</p>
+            </div>
+            
+            <div class="flex items-center gap-3 bg-gray-800 p-1.5 rounded-2xl border border-gray-700 shadow-lg">
+                <span class="text-xs text-gray-400 font-bold uppercase tracking-wider pl-2">Account Profile:</span>
+                <button id="user-btn-greg" onclick="switchUser('greg')" class="px-4 py-1.5 text-xs font-bold rounded-xl bg-blue-600 text-white shadow transition-all">
+                    Greg
+                </button>
+                <button id="user-btn-sarah" onclick="switchUser('sarah')" class="px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all">
+                    Sarah
+                </button>
+            </div>
+        </header>
+
+        <div id="status-progress-banner" class="bg-gray-800 rounded-2xl p-5 mb-8 border border-gray-700/50 grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+            <div>
+                <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wider"><span id="lbl-banner-name">Greg</span>'s 1K Status Velocity</h3>
+                <p class="text-xs text-gray-400 mt-0.5" id="lbl-banner-desc">Factoring in targets of 22,000 PQP & 60 PQF</p>
+            </div>
+            <div class="space-y-2">
+                <div class="flex justify-between text-xs">
+                    <span class="text-gray-400">Current YTD PQP</span>
+                    <span class="text-white font-semibold"><span id="txt-current-pqp">0</span> / <span id="txt-target-pqp">22,000</span> PQP</span>
+                </div>
+                <div class="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
+                    <div id="bar-pqp" class="bg-gradient-to-r from-blue-500 to-indigo-500 h-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+            <div id="pqf-progress-block" class="space-y-2">
+                <div class="flex justify-between text-xs">
+                    <span class="text-gray-400">Current YTD PQF</span>
+                    <span class="text-white font-semibold"><span id="txt-current-pqf">0</span> / 60 PQF</span>
+                </div>
+                <div class="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
+                    <div id="bar-pqf" class="bg-gradient-to-r from-emerald-500 to-teal-500 h-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-gray-800 p-1 rounded-xl flex">
+                    <button id="tab-flight" onclick="switchTab('flight')" class="w-1/2 py-2.5 text-center text-sm font-medium rounded-lg bg-blue-600 text-white shadow transition-all">
+                        ✈️ United Airlines
+                    </button>
+                    <button id="tab-hotel" onclick="switchTab('hotel')" class="w-1/2 py-2.5 text-center text-sm font-medium rounded-lg text-gray-400 hover:text-gray-200 transition-all">
+                        🏨 Marriott Bonvoy
+                    </button>
+                </div>
+
+                <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700/50">
+                    <div id="section-flight" class="space-y-6">
+                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+                            <h3 class="text-lg font-semibold text-blue-400">Flight Details</h3>
+                            <div class="flex items-center gap-2 bg-gray-900 px-3 py-1 rounded-xl border border-gray-700">
+                                <label class="text-xs text-gray-400 font-medium">Passenger:</label>
+                                <select id="flight-passenger-type" onchange="togglePassengerView()" class="bg-transparent text-xs text-blue-400 font-bold focus:outline-none cursor-pointer">
+                                    <option value="self" class="bg-gray-900 text-white">Myself (Keep Status)</option>
+                                    <option value="family" class="bg-gray-900 text-white">Family Member (Reimbursed)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Base Fare ($)</label>
+                                <input type="number" id="flight-fare" value="590" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Ticket Taxes ($)</label>
+                                <input type="number" id="flight-taxes-fees" value="60" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Award Miles</label>
+                                <input type="number" id="flight-miles" value="40000" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Segments (PQF)</label>
+                                <input type="number" id="flight-pqf-input" value="2" min="1" max="7" oninput="calculateFlight()" class="w-full bg-gray-900 border border-blue-500 border-2 rounded-xl px-4 py-3 text-white font-bold focus:outline-none transition-colors">
+                            </div>
+                        </div>
+
+                        <div id="family-reimbursement-row" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-xl bg-blue-950/20 border border-blue-900/50">
+                            <div>
+                                <label class="block text-xs font-semibold text-blue-400 uppercase tracking-wider mb-2">Cash Family Will Give You ($)</label>
+                                <input type="number" id="flight-reimbursement" value="650" oninput="calculateFlight()" class="w-full bg-gray-900 border border-blue-500 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-400 transition-colors">
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <span class="text-xs text-gray-400 font-medium">Family Reimbursement Logic:</span>
+                                <p class="text-xs text-gray-300 mt-1">Evaluates clear cash profit vs. the opportunity valuation of your primary mileage bank pool.</p>
+                            </div>
+                        </div>
+
+                        <div id="status-tracking-inputs" class="p-4 bg-gray-900/40 rounded-xl border border-gray-700/60">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Update <span id="lbl-input-name">Greg</span>'s YTD Status Totals (Autosaved)</label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] text-gray-400 mb-1">Current YTD PQP</label>
+                                    <input type="number" id="user-pqp" value="11000" placeholder="PQP" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-3 py-2 text-sm text-white font-medium focus:outline-none focus:border-blue-500">
+                                </div>
+                                <div id="sub-input-pqf-block">
+                                    <label class="block text-[11px] text-gray-400 mb-1">Current YTD PQF</label>
+                                    <input type="number" id="user-pqf" value="28" placeholder="PQF" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-3 py-2 text-sm text-white font-medium focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="section-hotel" class="space-y-6 hidden">
+                        <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+                            <h3 class="text-lg font-semibold text-purple-400">Stay Details</h3>
+                            <span id="lbl-marriott-status-tag" class="text-xs text-purple-300 font-medium bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800/40">23.5x Earning Rate Locked</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Base Room Rate ($)</label>
+                                <input type="number" id="hotel-base" value="1000" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-purple-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Local Taxes & Resort Fees ($)</label>
+                                <input type="number" id="hotel-taxes" value="200" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-purple-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Total Points Required</label>
+                                <input type="number" id="hotel-points" value="90000" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-purple-500 transition-colors">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-gradient-to-b from-gray-800 to-gray-850 rounded-2xl p-6 shadow-xl border border-gray-700/50 flex flex-col justify-between h-full min-h-[520px]">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">The Verdict</h3>
+                        
+                        <div id="verdict-banner" class="p-4 rounded-xl text-center mb-6 border transition-all duration-300">
+                            <span id="verdict-icon" class="text-3xl block mb-1">✈️</span>
+                            <h4 id="verdict-title" class="text-xl font-extrabold">Calculating...</h4>
+                            <p id="verdict-desc" class="text-xs mt-1 text-gray-300"></p>
+                        </div>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
+                                <span id="lbl-cpp" class="text-gray-400">Raw Value Per Mile</span>
+                                <span id="out-cpp" class="font-mono font-bold text-white">0.00¢</span>
+                            </div>
+                            <div id="row-forfeited-pts" class="flex justify-between items-center py-2 border-b border-gray-700/50">
+                                <span id="lbl-lost-pts" class="text-gray-400">Net Points Lost (if Award)</span>
+                                <span id="out-points-lost" class="font-mono text-amber-400">0</span>
+                            </div>
+                            
+                            <div id="pqp-comparison-block" class="space-y-2 pt-2 border-t border-gray-700/40">
+                                <div class="text-xs font-bold uppercase tracking-wider text-gray-500">PQP Velocity Matrix</div>
+                                
+                                <div class="flex justify-between items-center bg-gray-900/40 px-3 py-2 rounded-xl border border-gray-700/40">
+                                    <span class="text-xs text-gray-400">💵 Cash Path Total</span>
+                                    <span id="out-cash-pqp-total" class="font-mono text-emerald-400 font-semibold">+0 PQP</span>
+                                </div>
+                                
+                                <div class="flex justify-between items-center bg-gray-900/40 px-3 py-2 rounded-xl border border-gray-700/40">
+                                    <span id="lbl-award-path-pqp" class="text-xs text-gray-400">🎫 Your Award Path PQP</span>
+                                    <span id="out-award-pqp-total" class="font-mono text-blue-400 font-semibold">+0 PQP</span>
+                                </div>
+                                
+                                <div id="row-gifted-metrics" class="hidden flex justify-between items-center text-xs text-gray-500 bg-blue-950/10 px-3 py-1.5 rounded-lg border border-blue-900/20">
+                                    <span>🎁 Gifted to Passenger:</span>
+                                    <span id="out-gifted-pqp-msg" class="font-mono text-blue-300 font-medium">0 PQP & 0 PQF</span>
+                                </div>
+                                
+                                <div id="row-segment-delta" class="flex justify-between items-center text-xs text-gray-500 px-1">
+                                    <span id="lbl-segments-delta">Segments Logged:</span>
+                                    <span id="out-pqf" class="font-mono text-teal-400">+0 PQF</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-700 space-y-2">
+                        <div class="flex justify-between text-xs text-gray-400">
+                            <span id="lbl-summary-left">Net Cash Path Outlay:</span>
+                            <span id="summary-cash-path" class="text-white font-mono">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-400">
+                            <span id="lbl-summary-right">Net Award Path Outlay:</span>
+                            <span id="summary-award-path" class="text-white font-mono">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'flight';
+        let currentUser = 'greg'; // Default Profile State
+
+        const UA_MILE_VAL = 0.0135; 
+        const MARRIOTT_PT_VAL = 0.0085; 
+
+        function switchUser(user) {
+            currentUser = user;
+            const btnGreg = document.getElementById('user-btn-greg');
+            const btnSarah = document.getElementById('user-btn-sarah');
+            
+            const pqfProgressBlock = document.getElementById('pqf-progress-block');
+            const subInputPqfBlock = document.getElementById('sub-input-pqf-block');
+            const segmentInputCard = document.getElementById('flight-pqf-input').parentElement;
+
+            // Update Header Buttons UI
+            if (user === 'greg') {
+                btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-blue-600 text-white shadow transition-all";
+                btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
+                
+                // Greg Configuration: 22,000 PQP + 60 PQF Goals
+                document.getElementById('lbl-banner-name').innerText = "Greg";
+                document.getElementById('lbl-input-name').innerText = "Greg";
+                document.getElementById('lbl-banner-desc').innerText = "Factoring in targets of 22,000 PQP & 60 PQF";
+                document.getElementById('txt-target-pqp').innerText = "22,000";
+                document.getElementById('lbl-marriott-status-tag').innerText = "23.5x Earning Rate Locked (Lifetime Titanium)";
+                
+                pqfProgressBlock.classList.remove('hidden');
+                subInputPqfBlock.classList.remove('hidden');
+                segmentInputCard.classList.remove('hidden');
+            } else {
+                btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-purple-600 text-white shadow transition-all";
+                btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
+                
+                // Sarah Configuration: 28,000 PQP Pure Track (No PQF needed)
+                document.getElementById('lbl-banner-name').innerText = "Sarah";
+                document.getElementById('lbl-input-name').innerText = "Sarah";
+                document.getElementById('lbl-banner-desc').innerText = "Factoring in Pure PQP Track Target of 28,000 PQP";
+                document.getElementById('txt-target-pqp').innerText = "28,000";
+                document.getElementById('lbl-marriott-status-tag').innerText = "23.5x Earning Rate Locked (Annual Titanium)";
+                
+                // Hide segments from map layout overview for Sarah's tracking flow
+                pqfProgressBlock.classList.add('hidden');
+                subInputPqfBlock.classList.add('hidden');
+                segmentInputCard.classList.add('hidden');
+            }
+
+            // Load values saved to local memory streams for this specific user profile
+            loadUserProfileValues();
+            
+            if (currentTab === 'flight') {
+                calculateFlight();
+            } else {
+                calculateHotel();
+            }
+        }
+
+        function loadUserProfileValues() {
+            let prefix = currentUser === 'greg' ? 'greg_' : 'sarah_';
+            let savedPQP = localStorage.getItem(prefix + 'ytd_pqp');
+            let savedPQF = localStorage.getItem(prefix + 'ytd_pqf');
+
+            if (savedPQP !== null) {
+                document.getElementById('user-pqp').value = savedPQP;
+            } else {
+                document.getElementById('user-pqp').value = currentUser === 'greg' ? "11000" : "14000";
+            }
+
+            if (currentUser === 'greg') {
+                if (savedPQF !== null) {
+                    document.getElementById('user-pqf').value = savedPQF;
+                } else {
+                    document.getElementById('user-pqf').value = "28";
+                }
+            }
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            const flightBtn = document.getElementById('tab-flight');
+            const hotelBtn = document.getElementById('tab-hotel');
+            const flightSec = document.getElementById('section-flight');
+            const hotelSec = document.getElementById('section-hotel');
+            const pqpBlock = document.getElementById('pqp-comparison-block');
+            const bannerTracker = document.getElementById('status-progress-banner');
+
+            if (tab === 'flight') {
+                flightBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg bg-blue-600 text-white shadow transition-all";
+                hotelBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg text-gray-400 hover:text-gray-200 transition-all";
+                flightSec.classList.remove('hidden');
+                hotelSec.classList.add('hidden');
+                pqpBlock.classList.remove('hidden');
+                bannerTracker.classList.remove('hidden');
+                
+                document.getElementById('lbl-lost-pts').innerText = "Net Points Forfeited (if Cash)";
+                togglePassengerView();
+            } else {
+                hotelBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg bg-purple-600 text-white shadow transition-all";
+                flightBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg text-gray-400 hover:text-gray-200 transition-all";
+                hotelSec.classList.remove('hidden');
+                flightSec.classList.add('hidden');
+                
+                pqpBlock.classList.add('hidden');
+                bannerTracker.classList.add('hidden');
+                document.getElementById('family-reimbursement-row').classList.add('hidden');
+                document.getElementById('status-tracking-inputs').classList.add('hidden');
+                
+                document.getElementById('row-forfeited-pts').classList.remove('hidden');
+                document.getElementById('lbl-cpp').innerText = "Raw Value Per Point";
+                document.getElementById('lbl-lost-pts').innerText = "Points Forfeited (if Cash)";
+                document.getElementById('lbl-summary-left').innerText = "Net Cash Path Outlay:";
+                document.getElementById('lbl-summary-right').innerText = "Net Award Path Outlay:";
+                
+                calculateHotel();
+            }
+        }
+
+        function togglePassengerView() {
+            if (currentTab !== 'flight') return;
+
+            const passengerType = document.getElementById('flight-passenger-type').value;
+            const reimbursementRow = document.getElementById('family-reimbursement-row');
+            const trackingSubInputs = document.getElementById('status-tracking-inputs');
+            const giftedMetricsRow = document.getElementById('row-gifted-metrics');
+            const segmentRow = document.getElementById('row-segment-delta');
+            const bannerTracker = document.getElementById('status-progress-banner');
+
+            if (passengerType === 'family') {
+                reimbursementRow.classList.remove('hidden');
+                trackingSubInputs.classList.add('hidden');
+                giftedMetricsRow.classList.remove('hidden');
+                segmentRow.classList.add('hidden');
+                bannerTracker.classList.add('hidden'); 
+                
+                document.getElementById('lbl-cpp').innerText = "Liquid Cash Out Yield";
+                document.getElementById('lbl-lost-pts').innerText = "Total Miles Redeemed:";
+                document.getElementById('lbl-award-path-pqp').innerText = "🎫 Your Award Card PQP";
+                document.getElementById('lbl-summary-left').innerText = "Reimbursement Cash Received:";
+                document.getElementById('lbl-summary-right').innerText = "Opportunity Value of Miles Given Up:";
+            } else {
+                reimbursementRow.classList.add('hidden');
+                trackingSubInputs.classList.remove('hidden');
+                giftedMetricsRow.classList.add('hidden');
+                bannerTracker.classList.remove('hidden'); 
+                
+                document.getElementById('lbl-cpp').innerText = "Raw Value Per Mile";
+                document.getElementById('lbl-lost-pts').innerText = "Net Points Forfeited (if Cash)";
+                document.getElementById('lbl-award-path-pqp').innerText = "🎫 Your Award Path PQP";
+                document.getElementById('lbl-summary-left').innerText = "Net Cash Path Outlay:";
+                document.getElementById('lbl-summary-right').innerText = "Net Award Path Outlay:";
+                
+                if (currentUser === 'greg') {
+                    segmentRow.classList.remove('hidden');
+                    document.getElementById('lbl-segments-delta').innerText = "Segments Logged:";
+                } else {
+                    segmentRow.classList.add('hidden'); // Sarah ignores PQF map tracking
+                }
+            }
+            calculateFlight();
+        }
+
+        function calculateFlight() {
+            let fare = parseFloat(document.getElementById('flight-fare').value) || 0;
+            let taxesFees = parseFloat(document.getElementById('flight-taxes-fees').value) || 0;
+            let totalCashCost = fare + taxesFees;
+            let miles = parseFloat(document.getElementById('flight-miles').value) || 0;
+            let passengerType = document.getElementById('flight-passenger-type').value;
+
+            let segments = 0;
+            if (currentUser === 'greg') {
+                let segmentsInput = document.getElementById('flight-pqf-input');
+                segments = parseInt(segmentsInput.value) || 0;
+                if (segments < 1) segments = 1;
+                if (segments > 7) segments = 7;
+            }
+
+            const banner = document.getElementById('verdict-banner');
+            const title = document.getElementById('verdict-title');
+            const desc = document.getElementById('verdict-desc');
+            const icon = document.getElementById('verdict-icon');
+
+            // Fetch target parameters based on active profile map
+            let targetPQP = currentUser === 'greg' ? TARGET_PQP : 28000;
+
+            let currentPQP = parseFloat(document.getElementById('user-pqp').value) || 0;
+            let currentPQF = currentUser === 'greg' ? (parseInt(document.getElementById('user-pqf').value) || 0) : 0;
+
+            // Save entries dynamically into user specific localized memory slots
+            let prefix = currentUser === 'greg' ? 'greg_' : 'sarah_';
+            localStorage.setItem(prefix + 'ytd_pqp', currentPQP);
+            if (currentUser === 'greg') {
+                localStorage.setItem(prefix + 'ytd_pqf', currentPQF);
+            }
+
+            // --- 1. GENERAL CASH PATH METRICS ---
+            let cashMilesFromFare = fare * 11; 
+            let cashMilesFromCard = totalCashCost * 6; 
+            let totalCashMilesEarned = cashMilesFromFare + cashMilesFromCard;
+
+            let cashPqpFromFlight = Math.round(fare);
+            let cashPqpFromCard = Math.round(totalCashCost / 15); 
+            let totalCashPathPQP = cashPqpFromFlight + cashPqpFromCard;
+
+            // --- 2. SWITCH LOGIC MODES ---
+            if (passengerType === 'family') {
+                let reimbursement = parseFloat(document.getElementById('flight-reimbursement').value) || 0;
+                let trueCashProfit = reimbursement - taxesFees; 
+                let cashYieldPerMile = miles > 0 ? trueCashProfit / miles : 0;
+
+                let yourAwardCardPqp = Math.round(taxesFees / 15); 
+                let giftedFlightPqp = Math.round(miles / 100);    
+                
+                document.getElementById('out-cpp').innerText = (cashYieldPerMile * 100).toFixed(2) + '¢';
+                document.getElementById('out-points-lost').innerText = Math.round(miles).toLocaleString();
+                document.getElementById('out-cash-pqp-total').innerText = `+${totalCashPathPQP.toLocaleString()} PQP`;
+                document.getElementById('out-award-pqp-total').innerText = `+${yourAwardCardPqp.toLocaleString()} PQP`;
+                
+                document.getElementById('out-gifted-pqp-msg').innerText = `+${giftedFlightPqp.toLocaleString()} PQP & +${document.getElementById('flight-pqf-input').value} PQF`;
+
+                document.getElementById('summary-cash-path').innerText = '$' + reimbursement.toFixed(2);
+                document.getElementById('summary-award-path').innerText = '$' + (miles * UA_MILE_VAL).toFixed(2);
+
+                if (cashYieldPerMile >= UA_MILE_VAL) {
+                    title.innerText = "PROCEED WITH AWARD";
+                    desc.innerText = `Excellent trade! Your family buys your miles at ${(cashYieldPerMile*100).toFixed(2)}¢ each.`;
+                    icon.innerText = "💰🤝";
+                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-emerald-950/40 border-emerald-500/40 text-emerald-300 shadow-lg shadow-emerald-900/10";
+                } else {
+                    title.innerText = "TELL THEM TO PAY CASH";
+                    desc.innerText = `Poor mileage yield (${(cashYieldPerMile*100).toFixed(2)}¢/mile). Protect your pool stash and pass on the ticket trade.`;
+                    icon.innerText = "🛑";
+                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-amber-950/40 border-amber-500/40 text-amber-300 shadow-lg shadow-amber-900/10";
+                }
+
+            } else {
+                // SELF FLYING TRACK METRICS
+                document.getElementById('txt-current-pqp').innerText = currentPQP.toLocaleString();
+                let pqpPct = Math.min((currentPQP / targetPQP) * 100, 100);
+                document.getElementById('bar-pqp').style.width = pqpPct + '%';
+
+                if (currentUser === 'greg') {
+                    document.getElementById('txt-current-pqf').innerText = currentPQF.toLocaleString();
+                    let pqfPct = Math.min((currentPQF / TARGET_PQF) * 100, 100);
+                    document.getElementById('bar-pqf').style.width = pqfPct + '%';
+                    document.getElementById('out-pqf').innerText = `Both Paths Log +${segments} PQF`;
+                }
+
+                let awardPqpFromFlight = Math.round(miles / 100);
+                let awardPqpFromCard = Math.round(taxesFees / 15);
+                let totalAwardPathPQP = awardPqpFromFlight + awardPqpFromCard;
+                let totalAwardMilesEarned = taxesFees * 6;
+
+                let netPointsLostIfCash = totalCashMilesEarned - totalAwardMilesEarned;
+
+                document.getElementById('out-cash-pqp-total').innerText = `+${totalCashPathPQP.toLocaleString()} PQP`;
+                document.getElementById('out-award-pqp-total').innerText = `+${totalAwardPathPQP.toLocaleString()} PQP`;
+
+                // Automated Calendar Year Tracking Engine Pacing
+                let now = new Date();
+                let start = new Date(now.getFullYear(), 0, 1);
+                let diff = now - start;
+                let oneDay = 1000 * 60 * 60 * 24;
+                let dayOfYear = Math.floor(diff / oneDay);
+                let yearElapsedPct = dayOfYear / 365;
+
+                // Urgency calculation mapping out separate criteria based on profile rules
+                let statusProgressPct = 0;
+                if (currentUser === 'greg') {
+                    statusProgressPct = Math.min(currentPQP / targetPQP, currentPQF / TARGET_PQF);
+                } else {
+                    statusProgressPct = currentPQP / targetPQP; // Sarah is pure PQP volume pacing
+                }
+                
+                let urgencyMultiplier = 1.0;
+                if (statusProgressPct < yearElapsedPct && statusProgressPct < 1.0) {
+                    urgencyMultiplier = 1.25; 
+                }
+
+                let pointsLostValue = netPointsLostIfCash * UA_MILE_VAL;
+                let netCashCost = totalCashCost - pointsLostValue;
+                let netAwardCost = taxesFees + (miles * UA_MILE_VAL);
+                
+                let cpp = miles > 0 ? (totalCashCost - taxesFees) / miles : 0;
+                let adjustedTargetVal = UA_MILE_VAL * urgencyMultiplier;
+
+                document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
+                document.getElementById('out-points-lost').innerText = Math.round(netPointsLostIfCash).toLocaleString();
+                document.getElementById('summary-cash-path').innerText = '$' + netCashCost.toFixed(2);
+                document.getElementById('summary-award-path').innerText = '$' + netAwardCost.toFixed(2);
+
+                if (cpp >= adjustedTargetVal) {
+                    title.innerText = "BURN MILES";
+                    desc.innerText = `Excellent redemption value. Plus, you pull down +${totalAwardPathPQP} PQP from the award tracking matrix.`;
+                    icon.innerText = "🔥 ✈️";
+                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-emerald-950/40 border-emerald-500/40 text-emerald-300 shadow-lg shadow-emerald-900/10";
+                } else {
+                    title.innerText = "PAY WITH CASH";
+                    desc.innerText = urgencyMultiplier > 1.0 
+                        ? `Status Pacing Alert! Your account progression requires locking down maximum cash path volume (+${totalCashPathPQP} PQP).` 
+                        : `Poor redemption yield. Pay with cash to stack maximum tier returns.`;
+                    icon.innerText = "💵";
+                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-amber-950/40 border-amber-500/40 text-amber-300 shadow-lg shadow-amber-900/10";
+                }
+            }
+        }
+
+        function calculateHotel() {
+            let baseRate = parseFloat(document.getElementById('hotel-base').value) || 0;
+            let taxesFees = parseFloat(document.getElementById('hotel-taxes').value) || 0;
+            let totalHotelCash = baseRate + taxesFees;
+            let points = parseFloat(document.getElementById('hotel-points').value) || 0;
+
+            let pointsFromBase = baseRate * 17.5;
+            let pointsFromCard = totalHotelCash * 6;
+            let totalPointsEarnedIfCash = pointsFromBase + pointsFromCard;
+
+            let pointsLostValue = totalPointsEarnedIfCash * MARRIOTT_PT_VAL;
+            let netCashCost = totalHotelCash - pointsLostValue;
+            let netAwardCost = points * MARRIOTT_PT_VAL;
+            let cpp = points > 0 ? totalHotelCash / points : 0;
+
+            document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
+            document.getElementById('out-points-lost').innerText = Math.round(totalPointsEarnedIfCash).toLocaleString();
+            document.getElementById('summary-cash-path').innerText = '$' + netCashCost.toFixed(2);
+            document.getElementById('summary-award-path').innerText = '$' + netAwardCost.toFixed(2);
+
+            const banner = document.getElementById('verdict-banner');
+            const title = document.getElementById('verdict-title');
+            const desc = document.getElementById('verdict-desc');
+            const icon = document.getElementById('verdict-icon');
+
+            if (cpp >= MARRIOTT_PT_VAL) {
+                title.innerText = "BURN POINTS";
+                desc.innerText = currentUser === 'greg'
+                    ? `Excellent value. Your points yield is higher than your baseline target of ${(MARRIOTT_PT_VAL*100).toFixed(2)}¢.`
+                    : `Excellent value. Burns points safely. Award stays preserve your Titanium Night accrual toward re-earning your annual status threshold.`;
+                icon.innerText = "🔥 🏨";
+                banner.className = "p-4 rounded-xl text-center mb-6 border bg-emerald-950/40 border-emerald-500/40 text-emerald-300 shadow-lg shadow-emerald-900/10";
+            } else {
+                title.innerText = "PAY WITH CASH";
+                desc.innerText = currentUser === 'greg'
+                    ? `Poor redemption yield. Pay cash to protect your points bank.`
+                    : `Poor redemption yield. Pull out your card to capture that 23.5x multiplier vector. You still bank the mandatory Elite Night credits either way.`;
+                icon.innerText = "💵";
+                banner.className = "p-4 rounded-xl text-center mb-6 border bg-amber-950/40 border-amber-500/40 text-amber-300 shadow-lg shadow-amber-900/10";
+            }
+        }
+
+        window.onload = function() {
+            // Read active account profile on fresh window mount
+            switchUser('greg');
+        };
+    </script>
+</body>
+</html>
