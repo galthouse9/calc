@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Path Optimizer</title>
+    <title>Cash / Awards Optimizer</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen font-sans antialiased">
@@ -12,7 +12,7 @@
         <header class="border-b border-gray-800 pb-6 mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
                 <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
-                    Flight Path Optimizer
+                    Cash / Awards Optimizer
                 </h1>
                 <p class="text-sm text-gray-400 mt-1">Strategic Cash vs. Award Decision Engine</p>
             </div>
@@ -31,7 +31,7 @@
         <div class="bg-gray-950/60 rounded-2xl p-5 mb-6 border border-gray-800 space-y-5 text-xs">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <div id="cfg-card-greg" class="p-4 rounded-xl border border-blue-500/30 bg-blue-950/10 transition-all space-y-3">
+                <div id="cfg-card-greg" class="p-4 rounded-xl border border-blue-500/40 bg-blue-950/20 transition-all space-y-3">
                     <div class="font-bold text-blue-400 flex items-center justify-between border-b border-gray-900 pb-2">
                         <span class="text-sm flex items-center gap-1.5">👤 Greg's Profile Assets</span>
                         <span id="cfg-tag-greg" class="px-2 py-0.5 bg-blue-900/40 text-[10px] text-blue-300 rounded border border-blue-700/30 font-mono">Active</span>
@@ -40,20 +40,20 @@
                     <div class="grid grid-cols-2 gap-4 font-mono text-[11px] leading-relaxed">
                         <div class="space-y-1.5 border-r border-gray-900 pr-2">
                             <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wider block">✈️ United Airlines</span>
-                            <div>• Status: <span class="text-white font-medium">Premier 1K (11x)</span></div>
-                            <div>• Card: <span class="text-white font-medium">Club Card (6x)</span></div>
-                            <div>• Track: <span class="text-white font-medium">Pure PQP Spend</span></div>
+                            <div>• Elite Status: <span class="text-white font-medium">Premier 1K (11x)</span></div>
+                            <div>• Card Multiplier: <span class="text-white font-medium">Club Card (6x)</span></div>
+                            <div>• Target Track: <span class="text-white font-medium">Pure PQP Vector</span></div>
                         </div>
                         <div class="space-y-1.5 pl-1">
                             <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider block">🏨 Marriott Bonvoy</span>
-                            <div>• Status: <span class="text-white font-medium">Titanium Elite</span></div>
-                            <div>• Return: <span class="text-white font-medium">23.5x Total Cash Rate</span></div>
-                            <div>• Track: <span class="text-white font-medium">Lifetime Milestone</span></div>
+                            <div>• Elite Status: <span class="text-white font-medium">Titanium Elite (17.5x)</span></div>
+                            <div>• Card Multiplier: <span class="text-white font-medium">Marriott Card (6x)</span></div>
+                            <div>• Target Track: <span class="text-white font-medium">Lifetime Milestone</span></div>
                         </div>
                     </div>
                 </div>
                 
-                <div id="cfg-card-sarah" class="p-4 rounded-xl border border-gray-800 bg-gray-900/20 transition-all opacity-50 space-y-3">
+                <div id="cfg-card-sarah" class="p-4 rounded-xl border border-gray-800 bg-gray-900/10 transition-all opacity-40 space-y-3">
                     <div class="font-bold text-purple-400 flex items-center justify-between border-b border-gray-900 pb-2">
                         <span class="text-sm flex items-center gap-1.5">👤 Sarah's Profile Assets</span>
                         <span id="cfg-tag-sarah" class="hidden px-2 py-0.5 bg-purple-900/40 text-[10px] text-purple-300 rounded border border-purple-700/30 font-mono">Active</span>
@@ -62,15 +62,15 @@
                     <div class="grid grid-cols-2 gap-4 font-mono text-[11px] leading-relaxed">
                         <div class="space-y-1.5 border-r border-gray-900 pr-2">
                             <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wider block">✈️ United Airlines</span>
-                            <div>• Status: <span class="text-white font-medium">Premier 1K (11x)</span></div>
-                            <div>• Card: <span class="text-white font-medium">Club Card (6x)</span></div>
-                            <div>• Track: <span class="text-white font-medium">Pure PQP Spend</span></div>
+                            <div>• Elite Status: <span class="text-white font-medium">Premier 1K (11x)</span></div>
+                            <div>• Card Multiplier: <span class="text-white font-medium">Club Card (6x)</span></div>
+                            <div>• Target Track: <span class="text-white font-medium">Pure PQP Vector</span></div>
                         </div>
                         <div class="space-y-1.5 pl-1">
                             <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider block">🏨 Marriott Bonvoy</span>
-                            <div>• Status: <span class="text-white font-medium">Titanium Elite</span></div>
-                            <div>• Return: <span class="text-white font-medium">23.5x Total Cash Rate</span></div>
-                            <div>• Track: <span class="text-white font-medium">Annual Pacing (75 Nts)</span></div>
+                            <div>• Elite Status: <span class="text-white font-medium">Titanium Elite (17.5x)</span></div>
+                            <div>• Card Multiplier: <span class="text-white font-medium">Marriott Card (6x)</span></div>
+                            <div>• Target Track: <span class="text-white font-medium">Annual Track (75 Nts)</span></div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="px-2 py-1 bg-gray-900 rounded border border-gray-800 text-[10px] whitespace-nowrap self-end sm:self-auto">
-                    Dynamic Sync Pipeline Enabled
+                    Dynamic Math Pipeline Enabled
                 </div>
             </div>
         </div>
@@ -194,7 +194,7 @@
                     <div id="section-hotel" class="space-y-6 hidden">
                         <div class="flex justify-between items-center border-b border-gray-700 pb-2">
                             <h3 class="text-lg font-semibold text-purple-400">Stay Details</h3>
-                            <span id="lbl-marriott-status-tag" class="text-xs text-purple-300 font-medium bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800/40">23.5x Earning Rate Locked</span>
+                            <span id="lbl-marriott-status-tag" class="text-xs text-purple-300 font-medium bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800/40">Symmetrical Math Locked</span>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
@@ -384,7 +384,6 @@
                 document.getElementById('lbl-input-name').innerText = "Greg";
                 document.getElementById('lbl-banner-desc').innerText = `Factoring in pure spend status acceleration target of ${TARGET_PQP_GREG.toLocaleString()} PQP`;
                 document.getElementById('txt-target-pqp').innerText = TARGET_PQP_GREG.toLocaleString();
-                document.getElementById('lbl-marriott-status-tag').innerText = "23.5x Earning Rate Locked (Lifetime Titanium)";
             } else {
                 btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-purple-600 text-white shadow transition-all";
                 btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
@@ -398,7 +397,6 @@
                 document.getElementById('lbl-input-name').innerText = "Sarah";
                 document.getElementById('lbl-banner-desc').innerText = `Factoring in Pure PQP Track Target of ${TARGET_PQP_SARAH.toLocaleString()} PQP`;
                 document.getElementById('txt-target-pqp').innerText = TARGET_PQP_SARAH.toLocaleString();
-                document.getElementById('lbl-marriott-status-tag').innerText = "23.5x Earning Rate Locked (Annual Titanium Status)";
             }
 
             loadUserProfileValues();
@@ -519,7 +517,7 @@
                 document.getElementById('lbl-cpp').innerText = "True Value Per Mile";
                 document.getElementById('lbl-lost-pts').innerText = "Net Points Forfeited (if Cash)";
                 document.getElementById('lbl-summary-left').innerText = "Net Cash Path Outlay:";
-                document.getElementById('lbl-summary-right').innerText = "Net Award Path Outlay:";
+                document.getElementById('summary-cash-path').innerText = "Net Award Path Outlay:";
             }
             calculateFlight();
         }
@@ -710,13 +708,14 @@
 
             let currentMarriottPointValueConstant = getMarriottPtVal();
 
-            let pointsFromBase = baseRate * 17.5;
-            let pointsFromCard = totalHotelCash * 6;
-            let totalPointsEarnedIfCash = pointsFromBase + pointsFromCard;
+            let pointsFromBaseRoomRate = baseRate * 17.5; 
+            let pointsFromCreditCardSwipe = totalHotelCash * 6; 
+            let totalPointsEarnedIfCash = pointsFromBaseRoomRate + pointsFromCreditCardSwipe;
 
             let pointsLostValue = totalPointsEarnedIfCash * currentMarriottPointValueConstant;
             let netCashCost = totalHotelCash - pointsLostValue;
             let netAwardCost = points * currentMarriottValueConstant;
+            
             let cpp = points > 0 ? totalHotelCash / points : 0;
 
             document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
@@ -740,7 +739,7 @@
                 banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-emerald-900 to-teal-900 border-emerald-400 text-emerald-200 shadow-xl shadow-emerald-950";
             } else if (cpp <= (currentMarriottPointValueConstant * 0.5)) { 
                 title.innerText = "ABSOLUTE VALUE BLOCK";
-                desc.innerText = `Extreme asset loss execution at ${(cpp*100).toFixed(2)}¢/point. Switch to a cash spend path transaction to leverage your 23.5x multiplier.`;
+                desc.innerText = `Extreme asset loss execution at ${(cpp*100).toFixed(2)}¢/point. Switch to a cash spend path transaction to leverage your 6x card and status metrics.`;
                 icon.innerText = "🛑 💵";
                 banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-rose-950 to-red-900 border-red-500 text-red-200 shadow-xl shadow-rose-950";
             } else if (cpp >= currentMarriottPointValueConstant) {
