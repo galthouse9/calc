@@ -28,90 +28,25 @@
             </div>
         </header>
 
-        <div class="bg-gray-950/60 rounded-2xl p-5 mb-6 border border-gray-800 space-y-5 text-xs">
+        <div class="bg-gray-950/60 rounded-2xl p-5 mb-8 border border-gray-800 space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <div id="cfg-card-greg" class="p-4 rounded-xl border border-blue-500/40 bg-blue-950/20 transition-all space-y-3">
-                    <div class="font-bold text-blue-400 flex items-center justify-between border-b border-gray-900 pb-2">
-                        <span class="text-sm flex items-center gap-1.5">👤 Greg's Profile Assets</span>
-                        <span id="cfg-tag-greg" class="px-2 py-0.5 bg-blue-900/40 text-[10px] text-blue-300 rounded border border-blue-700/30 font-mono">Active</span>
+                <div id="cfg-card-greg" class="p-4 rounded-xl border border-blue-500/40 bg-blue-950/20 shadow-md space-y-3">
+                    <div class="font-bold text-blue-400 flex items-center justify-between border-b border-gray-900 pb-2 text-[12px]">
+                        <span>👤 Greg's Profile Assets</span>
+                        <span class="px-2 py-0.5 bg-blue-900/40 text-[10px] text-blue-300 rounded border border-blue-700/30 font-mono">Active</span>
                     </div>
-                    
-                    <div class="grid grid-cols-2 gap-4 font-mono text-[11px] leading-relaxed">
-                        <div class="space-y-1.5 border-r border-gray-900 pr-2">
-                            <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wider block">✈️ United Airlines</span>
-                            <div>• Elite Status: <span class="text-white font-medium">Premier 1K (11x)</span></div>
-                            <div>• Card Multiplier: <span class="text-white font-medium">Club Card (6x)</span></div>
-                            <div>• Target Track: <span class="text-white font-medium">Pure PQP Vector</span></div>
-                        </div>
-                        <div class="space-y-1.5 pl-1">
-                            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider block">🏨 Marriott Bonvoy</span>
-                            <div>• Elite Status: <span class="text-white font-medium">Titanium Elite (17.5x)</span></div>
-                            <div>• Card Multiplier: <span class="text-white font-medium">Marriott Card (6x)</span></div>
-                            <div>• Target Track: <span class="text-white font-medium">Lifetime Milestone</span></div>
-                        </div>
+                    <div class="grid grid-cols-2 gap-4 font-mono text-[11px] text-gray-400">
+                        <div><span class="text-blue-400 block font-bold">✈️ UNITED</span>1K (11x) | 6x Card</div>
+                        <div><span class="text-purple-400 block font-bold">🏨 MARRIOTT</span>Titanium (17.5x) | 6x Card</div>
                     </div>
                 </div>
-                
-                <div id="cfg-card-sarah" class="p-4 rounded-xl border border-gray-800 bg-gray-900/10 transition-all opacity-40 space-y-3">
-                    <div class="font-bold text-purple-400 flex items-center justify-between border-b border-gray-900 pb-2">
-                        <span class="text-sm flex items-center gap-1.5">👤 Sarah's Profile Assets</span>
-                        <span id="cfg-tag-sarah" class="hidden px-2 py-0.5 bg-purple-900/40 text-[10px] text-purple-300 rounded border border-purple-700/30 font-mono">Active</span>
+                <div id="cfg-card-sarah" class="p-4 rounded-xl border border-gray-800 bg-gray-900/10 opacity-40 space-y-3">
+                    <div class="font-bold text-purple-400 flex items-center justify-between border-b border-gray-900 pb-2 text-[12px]">
+                        <span>👤 Sarah's Profile Assets</span>
                     </div>
-                    
-                    <div class="grid grid-cols-2 gap-4 font-mono text-[11px] leading-relaxed">
-                        <div class="space-y-1.5 border-r border-gray-900 pr-2">
-                            <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wider block">✈️ United Airlines</span>
-                            <div>• Elite Status: <span class="text-white font-medium">Premier 1K (11x)</span></div>
-                            <div>• Card Multiplier: <span class="text-white font-medium">Club Card (6x)</span></div>
-                            <div>• Target Track: <span class="text-white font-medium">Pure PQP Vector</span></div>
-                        </div>
-                        <div class="space-y-1.5 pl-1">
-                            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider block">🏨 Marriott Bonvoy</span>
-                            <div>• Elite Status: <span class="text-white font-medium">Titanium Elite (17.5x)</span></div>
-                            <div>• Card Multiplier: <span class="text-white font-medium">Marriott Card (6x)</span></div>
-                            <div>• Target Track: <span class="text-white font-medium">Annual Track (75 Nts)</span></div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="pt-3 border-t border-gray-900 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[11px] font-mono text-gray-500">
-                <div class="flex flex-wrap gap-4 items-center w-full sm:w-auto">
-                    <div class="flex items-center gap-2 bg-gray-900/80 px-2 py-1 rounded border border-gray-800">
-                        <label for="input-ua-val" class="text-gray-400 font-bold">✈️ UA Baseline (¢):</label>
-                        <input type="number" id="input-ua-val" value="1.35" step="0.05" oninput="updateValuationBaselines()" class="w-14 bg-gray-950 text-amber-400 font-bold border border-gray-700 rounded px-1 py-0.5 focus:outline-none text-center">
-                    </div>
-                    <div class="flex items-center gap-2 bg-gray-900/80 px-2 py-1 rounded border border-gray-800">
-                        <label for="input-marriott-val" class="text-gray-400 font-bold">🏨 Marriott Baseline (¢):</label>
-                        <input type="number" id="input-marriott-val" value="0.85" step="0.05" oninput="updateValuationBaselines()" class="w-14 bg-gray-950 text-amber-400 font-bold border border-gray-700 rounded px-1 py-0.5 focus:outline-none text-center">
-                    </div>
-                </div>
-                <div class="px-2 py-1 bg-gray-900 rounded border border-gray-800 text-[10px] whitespace-nowrap self-end sm:self-auto">
-                    Dynamic Math Pipeline Enabled
-                </div>
-            </div>
-        </div>
-
-        <div id="status-progress-banner" class="bg-gray-800 rounded-2xl p-5 mb-8 border border-gray-700/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div class="w-full md:w-1/3">
-                <div class="flex items-center justify-between">
-                    <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wider"><span id="lbl-banner-name">Greg</span>'s 1K PQP Velocity</h3>
-                    <span class="text-[10px] px-1.5 py-0.5 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 font-mono font-bold">Year Elapsed: <span id="txt-calendar-pct">0%</span></span>
-                </div>
-                <p class="text-xs text-gray-400 mt-0.5" id="lbl-banner-desc">Factoring in pure status acceleration targets</p>
-            </div>
-            
-            <div class="space-y-2 w-full md:w-2/3">
-                <div class="flex justify-between text-xs">
-                    <span class="text-gray-400 flex items-center gap-2">Current YTD Progress Balance <span id="pqp-pace-badge"></span></span>
-                    <span class="text-white font-semibold"><span id="txt-current-pqp">0</span> / <span id="txt-target-pqp">22,000</span> PQP</span>
-                </div>
-                <div class="w-full bg-gray-700 h-3 rounded-full relative overflow-visible">
-                    <div id="bar-pqp" class="bg-gradient-to-r from-blue-500 to-indigo-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
-                    <div class="absolute top-[-3px] bottom-[-3px] w-[3px] bg-amber-400 shadow-md shadow-amber-500/40 pointer-events-none timeline-marker-pin" style="left: 0%">
-                        <div class="absolute top-[-10px] left-[-12px] text-[8px] bg-amber-400 text-gray-950 px-0.5 font-extrabold rounded shadow font-mono">TODAY</div>
+                    <div class="grid grid-cols-2 gap-4 font-mono text-[11px] text-gray-400">
+                        <div><span class="text-blue-400 block font-bold">✈️ UNITED</span>1K (11x) | 6x Card</div>
+                        <div><span class="text-purple-400 block font-bold">🏨 MARRIOTT</span>Titanium (17.5x) | 6x Card</div>
                     </div>
                 </div>
             </div>
@@ -120,170 +55,79 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-2 space-y-6">
                 <div class="bg-gray-800 p-1 rounded-xl flex">
-                    <button id="tab-flight" onclick="switchTab('flight')" class="w-1/2 py-2.5 text-center text-sm font-medium rounded-lg bg-blue-600 text-white shadow transition-all">
-                        ✈️ United Airlines
-                    </button>
-                    <button id="tab-hotel" onclick="switchTab('hotel')" class="w-1/2 py-2.5 text-center text-sm font-medium rounded-lg text-gray-400 hover:text-gray-200 transition-all">
-                        🏨 Marriott Bonvoy
-                    </button>
+                    <button id="tab-flight" onclick="switchTab('flight')" class="w-1/2 py-2.5 text-center text-sm font-medium rounded-lg bg-blue-600 text-white shadow">✈️ United Airlines</button>
+                    <button id="tab-hotel" onclick="switchTab('hotel')" class="w-1/2 py-2.5 text-center text-sm font-medium rounded-lg text-gray-400 hover:text-gray-200">🏨 Marriott Bonvoy</button>
                 </div>
 
                 <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700/50">
                     <div id="section-flight" class="space-y-6">
                         <div class="flex justify-between items-center border-b border-gray-700 pb-2">
                             <h3 class="text-lg font-semibold text-blue-400">Flight Details</h3>
-                            <div class="flex items-center gap-2 bg-gray-900 px-3 py-1 rounded-xl border border-gray-700">
-                                <label class="text-xs text-gray-400 font-medium">Passenger:</label>
-                                <select id="flight-passenger-type" onchange="togglePassengerView()" class="bg-transparent text-xs text-blue-400 font-bold focus:outline-none cursor-pointer">
-                                    <option value="self" class="bg-gray-900 text-white">Myself (Keep Status)</option>
-                                    <option value="third_party" class="bg-gray-900 text-white">Third Party (Reimbursed)</option>
-                                </select>
-                            </div>
+                            <select id="flight-passenger-type" onchange="toggleFlightPassengerView()" class="bg-gray-900 text-xs text-blue-400 font-bold px-3 py-1 rounded-xl border border-gray-700 cursor-pointer">
+                                <option value="self">Myself</option>
+                                <option value="third_party">Third Party (Reimbursed)</option>
+                            </select>
                         </div>
-                        
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="p-4 bg-gray-900/30 rounded-xl border border-gray-700/30 space-y-3">
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 block border-b border-gray-800 pb-1">💵 Cash Ticket Path</span>
-                                <div>
-                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Base Fare ($)</label>
-                                    <input type="number" id="flight-fare" placeholder="0" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Cash Path Taxes/Fees ($)</label>
-                                    <input type="number" id="flight-cash-taxes" placeholder="0" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
-                                </div>
+                                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block border-b border-gray-800 pb-1">💵 Cash Path</span>
+                                <input type="number" id="flight-fare" placeholder="Base Fare ($)" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white">
+                                <input type="number" id="flight-cash-taxes" placeholder="Taxes ($)" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white">
                             </div>
-
                             <div class="p-4 bg-gray-900/30 rounded-xl border border-gray-700/30 space-y-3">
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-blue-400 block border-b border-gray-800 pb-1">🎫 Award Ticket Path</span>
-                                <div>
-                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Actual Award Miles Required</label>
-                                    <input type="number" id="flight-miles" placeholder="0" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-medium text-gray-400 mb-1">Award Path Taxes/Fees ($)</label>
-                                    <input type="number" id="flight-award-taxes" value="5.60" oninput="calculateFlight()" class="w-full bg-gray-900 border border-blue-500 border rounded-lg px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-blue-500">
-                                </div>
+                                <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wider block border-b border-gray-800 pb-1">🎫 Award Path</span>
+                                <input type="number" id="flight-miles" placeholder="Miles Required" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white">
+                                <input type="number" id="flight-award-taxes" value="5.60" placeholder="Taxes ($)" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white">
                             </div>
                         </div>
-
-                        <div id="third-party-reimbursement-row" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-xl bg-blue-950/20 border border-blue-900/50">
-                            <div>
-                                <label class="block text-xs font-semibold text-blue-400 uppercase tracking-wider mb-2">Reimbursement Cash Received ($)</label>
-                                <input type="number" id="flight-reimbursement" placeholder="0" oninput="calculateFlight()" class="w-full bg-gray-900 border border-blue-500 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-blue-400 transition-colors">
-                            </div>
-                            <div class="flex flex-col justify-center">
-                                <span class="text-xs text-gray-400 font-medium">Reimbursement Logic:</span>
-                                <p class="text-xs text-gray-300 mt-1">Evaluates clear cash profit vs. the opportunity valuation of your primary mileage bank pool.</p>
-                            </div>
-                        </div>
-
-                        <div id="status-tracking-inputs" class="p-4 bg-gray-900/40 rounded-xl border border-gray-700/60">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-                                <div>
-                                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Update YTD PQP Balance (Autosaved)</label>
-                                    <input type="number" id="user-pqp" value="11000" placeholder="PQP" oninput="calculateFlight()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-3 py-2 text-sm text-white font-medium focus:outline-none focus:border-blue-500">
-                                </div>
-                                <div class="text-[11px] text-gray-500 leading-normal bg-gray-900/20 p-3 rounded-lg border border-gray-800/60 font-mono mt-2 md:mt-0">
-                                    PQP tracking integrates automated calendar velocity multipliers to protect status goals.
-                                </div>
-                            </div>
+                        <div id="flight-reimbursement-row" class="hidden grid grid-cols-1 gap-4 p-4 rounded-xl bg-blue-950/20 border border-blue-900/50">
+                            <input type="number" id="flight-reimbursement" placeholder="Reimbursement Received ($)" oninput="calculateFlight()" class="w-full bg-gray-900 border border-blue-500 rounded-xl px-4 py-3 text-white text-sm">
                         </div>
                     </div>
 
                     <div id="section-hotel" class="space-y-6 hidden">
                         <div class="flex justify-between items-center border-b border-gray-700 pb-2">
                             <h3 class="text-lg font-semibold text-purple-400">Stay Details</h3>
-                            <span id="lbl-marriott-status-tag" class="text-xs text-purple-300 font-medium bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800/40">Symmetrical Math Locked</span>
+                            <select id="hotel-guest-type" onchange="toggleHotelGuestView()" class="bg-gray-900 text-xs text-purple-400 font-bold px-3 py-1 rounded-xl border border-gray-700 cursor-pointer">
+                                <option value="self">Myself</option>
+                                <option value="third_party">Third Party (Reimbursed)</option>
+                            </select>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Base Room Rate ($)</label>
-                                <input type="number" id="hotel-base" placeholder="0" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-purple-500 transition-colors">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-gray-900/30 rounded-xl border border-gray-700/30 space-y-3">
+                                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block border-b border-gray-800 pb-1">💵 Cash Path</span>
+                                <input type="number" id="hotel-base" placeholder="Base Room Rate ($)" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white">
+                                <input type="number" id="hotel-taxes" placeholder="Taxes & Fees ($)" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white">
                             </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Local Taxes & Resort Fees ($)</label>
-                                <input type="number" id="hotel-taxes" placeholder="0" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-purple-500 transition-colors">
+                            <div class="p-4 bg-gray-900/30 rounded-xl border border-gray-700/30 space-y-3">
+                                <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider block border-b border-gray-800 pb-1">🎫 Award Path</span>
+                                <input type="number" id="hotel-points" placeholder="Points Required" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white">
                             </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Total Points Required</label>
-                                <input type="number" id="hotel-points" placeholder="0" oninput="calculateHotel()" class="w-full bg-gray-900 border border-gray-600 rounded-xl px-4 py-3 text-white font-medium focus:outline-none focus:border-purple-500 transition-colors">
-                            </div>
+                        </div>
+                        <div id="hotel-reimbursement-row" class="hidden grid grid-cols-1 gap-4 p-4 rounded-xl bg-purple-950/20 border border-purple-900/50">
+                            <input type="number" id="hotel-reimbursement" placeholder="Reimbursement Received ($)" oninput="calculateHotel()" class="w-full bg-gray-900 border border-purple-500 rounded-xl px-4 py-3 text-white text-sm">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-gradient-to-b from-gray-800 to-gray-850 rounded-2xl p-6 shadow-xl border border-gray-700/50 flex flex-col justify-between h-full min-h-[580px]">
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">The Verdict</h3>
-                        
-                        <div id="verdict-banner" class="p-4 rounded-xl text-center mb-4 border transition-all duration-300 border-gray-700 bg-gray-800/40 text-gray-400">
-                            <span id="verdict-icon" class="text-3xl block mb-1">✈️</span>
-                            <h4 id="verdict-title" class="text-xl font-extrabold">Awaiting Inputs</h4>
-                            <p id="verdict-desc" class="text-xs mt-1 text-gray-300">Enter complete card details to generate vector decision matrix.</p>
-                        </div>
-
-                        <div class="mb-5 bg-gray-900/60 p-4 rounded-xl border border-gray-700/30 flex flex-col items-center">
-                            <div class="flex justify-between w-full text-[10px] uppercase font-bold text-gray-500 px-1 mb-1 font-mono tracking-wider">
-                                <span>💵 Cash Path</span>
-                                <span>🎫 Award Path</span>
-                            </div>
-                            
-                            <div class="w-full bg-gray-800 h-2.5 rounded-full relative overflow-visible shadow-inner flex">
-                                <div class="w-[20%] bg-gradient-to-r from-red-600 to-rose-500 h-full rounded-l-full"></div>
-                                <div class="w-[20%] bg-amber-500 h-full"></div>
-                                <div class="w-[20%] bg-slate-500 h-full"></div>
-                                <div class="w-[20%] bg-emerald-500 h-full"></div>
-                                <div class="w-[20%] bg-gradient-to-r from-teal-500 to-cyan-500 h-full rounded-r-full"></div>
-                                
-                                <div id="gauge-needle" class="absolute top-[-5px] bottom-[-5px] w-1 bg-white border border-gray-950 transition-all duration-500 ease-out shadow-lg" style="left: 50%;">
-                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute top-[-4px] left-[-3px] border border-gray-950 shadow"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-3 text-sm">
-                            <div class="flex justify-between items-center py-2 border-b border-gray-700/50">
-                                <span id="lbl-cpp" class="text-gray-400">True Value Per Unit</span>
-                                <span id="out-cpp" class="font-mono font-bold text-white">0.00¢</span>
-                            </div>
-                            <div id="row-forfeited-pts" class="flex justify-between items-center py-2 border-b border-gray-700/50">
-                                <span id="lbl-lost-pts" class="text-gray-400">Net Points Lost (if Award)</span>
-                                <span id="out-points-lost" class="font-mono text-amber-400">0</span>
-                            </div>
-                            
-                            <div id="pqp-comparison-block" class="space-y-2 pt-2 border-t border-gray-700/40">
-                                <div class="text-xs font-bold uppercase tracking-wider text-gray-500">PQP Velocity Matrix</div>
-                                
-                                <div class="flex justify-between items-center bg-gray-900/40 px-3 py-2 rounded-xl border border-gray-700/40">
-                                    <span id="lbl-cash-pqp" class="text-xs text-gray-400">💵 Cash Path Total</span>
-                                    <span id="out-cash-pqp-total" class="font-mono text-emerald-400 font-semibold">+0 PQP</span>
-                                </div>
-                                
-                                <div class="flex justify-between items-center bg-gray-900/40 px-3 py-2 rounded-xl border border-gray-700/40">
-                                    <span id="lbl-award-path-pqp" class="text-xs text-gray-400">🎫 Your Award Path PQP</span>
-                                    <span id="out-award-pqp-total" class="font-mono text-blue-400 font-semibold">+0 PQP</span>
-                                </div>
-                                
-                                <div id="row-gifted-metrics" class="hidden flex justify-between items-center text-xs text-gray-500 bg-blue-950/10 px-3 py-1.5 rounded-lg border border-blue-900/20">
-                                    <span>🎁 Passenger Dynamic Return:</span>
-                                    <span id="out-gifted-pqp-msg" class="font-mono text-blue-300 font-medium">0 PQP</span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700/50 flex flex-col min-h-[500px]">
+                <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">The Verdict</h3>
+                <div id="verdict-banner" class="p-4 rounded-xl text-center mb-6 border border-gray-700 bg-gray-800/40 text-gray-400">
+                    <h4 id="verdict-title" class="text-xl font-extrabold">Ready</h4>
+                </div>
+                <div class="mt-auto space-y-4">
+                    <div class="flex justify-between border-b border-gray-700 pb-2">
+                        <span class="text-gray-400">Efficiency</span>
+                        <span id="out-cpp" class="font-bold">0.00¢</span>
                     </div>
-
-                    <div class="mt-6 pt-4 border-t border-gray-700 space-y-2">
-                        <div class="flex justify-between text-xs text-gray-400">
-                            <span id="lbl-summary-left">Net Cash Path Outlay:</span>
-                            <span id="summary-cash-path" class="text-white font-mono">$0.00</span>
-                        </div>
-                        <div class="flex justify-between text-xs text-gray-400">
-                            <span id="lbl-summary-right">Net Award Path Outlay:</span>
-                            <span id="summary-award-path" class="text-white font-mono">$0.00</span>
-                        </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Cash Path Cost</span>
+                        <span id="summary-cash-path" class="font-bold text-white">$0.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Award Path Cost</span>
+                        <span id="summary-award-path" class="font-bold text-white">$0.00</span>
                     </div>
                 </div>
             </div>
@@ -291,487 +135,13 @@
     </div>
 
     <script>
-        let currentTab = 'flight';
-        let currentUser = 'greg';
-
-        let defaultUAMileVal = 0.0135; 
-        let defaultMarriottPtVal = 0.0085; 
-
-        const TARGET_PQP_GREG = 24000; 
-        const TARGET_PQP_SARAH = 28000;
-
-        function getUAMileVal() {
-            let val = parseFloat(document.getElementById('input-ua-val').value);
-            return (!isNaN(val) && val > 0) ? (val / 100) : defaultUAMileVal;
-        }
-
-        function getMarriottPtVal() {
-            let val = parseFloat(document.getElementById('input-marriott-val').value);
-            return (!isNaN(val) && val > 0) ? (val / 100) : defaultMarriottPtVal;
-        }
-
-        function getYearElapsedPercentage() {
-            let now = new Date();
-            let start = new Date(now.getFullYear(), 0, 1);
-            let diff = now - start;
-            let oneDay = 1000 * 60 * 60 * 24;
-            let dayOfYear = Math.floor(diff / oneDay);
-            return dayOfYear / 365;
-        }
-
-        function updateValuationBaselines() {
-            localStorage.setItem('cfg_ua_mile_val', document.getElementById('input-ua-val').value);
-            localStorage.setItem('cfg_marriott_pt_val', document.getElementById('input-marriott-val').value);
-
-            if (currentTab === 'flight') {
-                calculateFlight();
-            } else {
-                calculateHotel();
-            }
-        }
-
-        function updateGaugeMeterPosition(calculatedCpp, baseTargetConstant) {
-            const needle = document.getElementById('gauge-needle');
-            let positionPercentage = 50; 
-            
-            if (calculatedCpp === 0) {
-                needle.style.left = '50%';
-                return;
-            }
-
-            let extremeHighCeiling = baseTargetConstant * 1.5;
-            let extremeLowFloor = baseTargetConstant * 0.5;
-
-            if (calculatedCpp >= extremeHighCeiling) {
-                positionPercentage = 95; 
-            } else if (calculatedCpp <= extremeLowFloor) {
-                positionPercentage = 5;  
-            } else if (calculatedCpp === baseTargetConstant) {
-                positionPercentage = 70; 
-            } else if (calculatedCpp > baseTargetConstant) {
-                let rangeFraction = (calculatedCpp - baseTargetConstant) / (extremeHighCeiling - baseTargetConstant);
-                positionPercentage = 70 + (rangeFraction * 18);
-            } else {
-                let spreadFromFloor = calculatedCpp - extremeLowFloor;
-                let scaleRange = baseTargetConstant - extremeLowFloor;
-                let rangeFraction = Math.max(0, spreadFromFloor / scaleRange);
-                positionPercentage = 5 + (rangeFraction * 60); 
-            }
-
-            needle.style.left = positionPercentage + '%';
-        }
-
-        function switchUser(user) {
-            currentUser = user;
-            const btnGreg = document.getElementById('user-btn-greg');
-            const btnSarah = document.getElementById('user-btn-sarah');
-            
-            const cfgGreg = document.getElementById('cfg-card-greg');
-            const cfgSarah = document.getElementById('cfg-card-sarah');
-            const tagGreg = document.getElementById('cfg-tag-greg');
-            const tagSarah = document.getElementById('cfg-tag-sarah');
-
-            if (user === 'greg') {
-                btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-blue-600 text-white shadow transition-all";
-                btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
-                
-                cfgGreg.className = "p-4 rounded-xl border border-blue-500/40 bg-blue-950/20 transition-all opacity-100 shadow-md space-y-3";
-                cfgSarah.className = "p-4 rounded-xl border border-gray-800 bg-gray-900/10 transition-all opacity-40 space-y-3";
-                tagGreg.classList.remove('hidden');
-                tagSarah.classList.add('hidden');
-
-                document.getElementById('lbl-banner-name').innerText = "Greg";
-                document.getElementById('lbl-input-name').innerText = "Greg";
-                document.getElementById('lbl-banner-desc').innerText = `Factoring in pure spend status acceleration target of ${TARGET_PQP_GREG.toLocaleString()} PQP`;
-                document.getElementById('txt-target-pqp').innerText = TARGET_PQP_GREG.toLocaleString();
-            } else {
-                btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-purple-600 text-white shadow transition-all";
-                btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
-                
-                cfgSarah.className = "p-4 rounded-xl border border-purple-500/40 bg-purple-950/20 transition-all opacity-100 shadow-md space-y-3";
-                cfgGreg.className = "p-4 rounded-xl border border-gray-800 bg-gray-900/10 transition-all opacity-40 space-y-3";
-                tagSarah.classList.remove('hidden');
-                tagGreg.classList.add('hidden');
-
-                document.getElementById('lbl-banner-name').innerText = "Sarah";
-                document.getElementById('lbl-input-name').innerText = "Sarah";
-                document.getElementById('lbl-banner-desc').innerText = `Factoring in Pure PQP Track Target of ${TARGET_PQP_SARAH.toLocaleString()} PQP`;
-                document.getElementById('txt-target-pqp').innerText = TARGET_PQP_SARAH.toLocaleString();
-            }
-
-            loadUserProfileValues();
-            
-            if (currentTab === 'flight') {
-                calculateFlight();
-            } else {
-                calculateHotel();
-            }
-        }
-
-        function loadUserProfileValues() {
-            let prefix = currentUser === 'greg' ? 'greg_' : 'sarah_';
-            let savedPQP = localStorage.getItem(prefix + 'ytd_pqp');
-
-            if (savedPQP !== null) {
-                document.getElementById('user-pqp').value = savedPQP;
-            } else {
-                document.getElementById('user-pqp').value = currentUser === 'greg' ? "12000" : "14000";
-            }
-            
-            let targetPQP = currentUser === 'greg' ? TARGET_PQP_GREG : TARGET_PQP_SARAH;
-            let currentPQP = parseFloat(document.getElementById('user-pqp').value) || 0;
-            document.getElementById('txt-current-pqp').innerText = currentPQP.toLocaleString();
-            
-            let pqpPct = Math.min((currentPQP / targetPQP) * 100, 100);
-            document.getElementById('bar-pqp').style.width = pqpPct + '%';
-
-            let yearElapsedPct = getYearElapsedPercentage();
-            document.getElementById('txt-calendar-pct').innerText = (yearElapsedPct * 100).toFixed(0) + '%';
-
-            let pins = document.querySelectorAll('.timeline-marker-pin');
-            pins.forEach(pin => {
-                pin.style.left = (yearElapsedPct * 100) + '%';
-            });
-
-            let pqpBadge = document.getElementById('pqp-pace-badge');
-            if (pqpPct >= (yearElapsedPct * 100)) {
-                pqpBadge.className = "text-[10px] px-1 bg-emerald-950 text-emerald-400 font-bold rounded border border-emerald-800";
-                pqpBadge.innerText = "AHEAD";
-            } else {
-                pqpBadge.className = "text-[10px] px-1 bg-rose-950 text-rose-400 font-bold rounded border border-rose-800";
-                pqpBadge.innerText = "BEHIND";
-            }
-        }
-
-        function switchTab(tab) {
-            currentTab = tab;
-            const flightBtn = document.getElementById('tab-flight');
-            const hotelBtn = document.getElementById('tab-hotel');
-            const flightSec = document.getElementById('section-flight');
-            const hotelSec = document.getElementById('section-hotel');
-            const pqpBlock = document.getElementById('pqp-comparison-block');
-            const bannerTracker = document.getElementById('status-progress-banner');
-
-            if (tab === 'flight') {
-                flightBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg bg-blue-600 text-white shadow transition-all";
-                hotelBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg text-gray-400 hover:text-gray-200 transition-all";
-                flightSec.classList.remove('hidden');
-                hotelSec.classList.add('hidden');
-                pqpBlock.classList.remove('hidden');
-                bannerTracker.classList.remove('hidden');
-                
-                document.getElementById('lbl-lost-pts').innerText = "Net Points Forfeited (if Cash)";
-                togglePassengerView();
-            } else {
-                hotelBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg bg-purple-600 text-white shadow transition-all";
-                flightBtn.className = "w-1/2 py-2.5 text-center text-sm font-medium rounded-lg text-gray-400 hover:text-gray-200 transition-all";
-                hotelSec.classList.remove('hidden');
-                flightSec.classList.add('hidden');
-                
-                pqpBlock.className = "hidden";
-                bannerTracker.classList.add('hidden');
-                document.getElementById('third-party-reimbursement-row').classList.add('hidden');
-                document.getElementById('status-tracking-inputs').classList.add('hidden');
-                
-                document.getElementById('row-forfeited-pts').classList.remove('hidden');
-                document.getElementById('lbl-cpp').innerText = "True Value Per Point";
-                document.getElementById('lbl-lost-pts').innerText = "Points Forfeited (if Cash)";
-                document.getElementById('lbl-summary-left').innerText = "Net Cash Path Outlay:";
-                document.getElementById('lbl-summary-right').innerText = "Net Award Path Outlay:";
-                
-                calculateHotel();
-            }
-        }
-
-        function togglePassengerView() {
-            if (currentTab !== 'flight') return;
-
-            const passengerType = document.getElementById('flight-passenger-type').value;
-            const reimbursementRow = document.getElementById('third-party-reimbursement-row');
-            const trackingSubInputs = document.getElementById('status-tracking-inputs');
-            const giftedMetricsRow = document.getElementById('row-gifted-metrics');
-            const bannerTracker = document.getElementById('status-progress-banner');
-
-            if (passengerType === 'third_party') {
-                reimbursementRow.className = "grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-xl bg-blue-950/20 border border-blue-900/50";
-                trackingSubInputs.classList.add('hidden');
-                giftedMetricsRow.classList.remove('hidden');
-                bannerTracker.classList.add('hidden'); 
-                
-                document.getElementById('lbl-cash-pqp').innerText = "💵 Cash Passenger Return";
-                document.getElementById('lbl-award-path-pqp').innerText = "🎫 Award Passenger Return";
-                
-                document.getElementById('lbl-cpp').innerText = "Liquid Cash Out Yield";
-                document.getElementById('lbl-lost-pts').innerText = "Total Miles Redeemed:";
-                document.getElementById('lbl-summary-left').innerText = "Reimbursement Cash Received:";
-                document.getElementById('lbl-summary-right').innerText = "Opportunity Value of Miles Given Up:";
-            } else {
-                reimbursementRow.classList.add('hidden');
-                trackingSubInputs.classList.remove('hidden');
-                giftedMetricsRow.classList.add('hidden');
-                bannerTracker.classList.remove('hidden'); 
-                
-                document.getElementById('lbl-cash-pqp').innerText = "💵 Cash Path Total";
-                document.getElementById('lbl-award-path-pqp').innerText = "🎫 Your Award Path PQP";
-                
-                document.getElementById('lbl-cpp').innerText = "True Value Per Mile";
-                document.getElementById('lbl-lost-pts').innerText = "Net Points Forfeited (if Cash)";
-                document.getElementById('lbl-summary-left').innerText = "Net Cash Path Outlay:";
-                document.getElementById('summary-cash-path').innerText = "Net Award Path Outlay:";
-            }
-            calculateFlight();
-        }
-
-        function calculateFlight() {
-            let fare = parseFloat(document.getElementById('flight-fare').value) || 0;
-            let cashTaxes = parseFloat(document.getElementById('flight-cash-taxes').value) || 0;
-            let awardTaxes = parseFloat(document.getElementById('flight-award-taxes').value) || 0;
-            
-            let totalCashPathOutofPocket = fare + cashTaxes;
-            let miles = parseFloat(document.getElementById('flight-miles').value) || 0;
-            let passengerType = document.getElementById('flight-passenger-type').value;
-
-            const banner = document.getElementById('verdict-banner');
-            const title = document.getElementById('verdict-title');
-            const desc = document.getElementById('verdict-desc');
-            const icon = document.getElementById('verdict-icon');
-
-            let targetPQP = currentUser === 'greg' ? TARGET_PQP_GREG : TARGET_PQP_SARAH;
-            let currentPQP = parseFloat(document.getElementById('user-pqp').value) || 0;
-
-            let prefix = currentUser === 'greg' ? 'greg_' : 'sarah_';
-            localStorage.setItem(prefix + 'ytd_pqp', currentPQP);
-
-            let currentUAMileValueConstant = getUAMileVal();
-
-            if (fare === 0 || miles === 0) {
-                title.innerText = "Awaiting Inputs";
-                desc.innerText = "Enter complete card details to generate vector decision matrix.";
-                icon.innerText = "✈️";
-                banner.className = "p-4 rounded-xl text-center mb-6 border border-gray-700 bg-gray-800/40 text-gray-400";
-                document.getElementById('out-cpp').innerText = "0.00¢";
-                document.getElementById('out-points-lost').innerText = "0";
-                document.getElementById('out-cash-pqp-total').innerText = "+0 PQP";
-                document.getElementById('out-award-pqp-total').innerText = "+0 PQP";
-                document.getElementById('summary-cash-path').innerText = "$0.00";
-                document.getElementById('summary-award-path').innerText = "$0.00";
-                updateGaugeMeterPosition(0, currentUAMileValueConstant);
-                return;
-            }
-
-            let cashMilesFromFare = fare * 11; 
-            let cashMilesFromCard = totalCashPathOutofPocket * 6; 
-            let totalCashMilesEarned = cashMilesFromFare + cashMilesFromCard;
-
-            let cashPqpFromFlight = Math.round(fare);
-            let cashPqpFromCard = Math.round(totalCashPathOutofPocket / 15); 
-            let totalCashPathPQP = cashPqpFromFlight + cashPqpFromCard;
-
-            if (passengerType === 'third_party') {
-                let reimbursement = parseFloat(document.getElementById('flight-reimbursement').value) || 0;
-                let trueCashProfit = reimbursement - awardTaxes; 
-                let cashYieldPerMile = miles > 0 ? trueCashProfit / miles : 0;
-
-                let passengerCashPqpEarned = Math.round(fare); 
-                let passengerAwardPqpEarned = Math.round(miles / 100); 
-                
-                document.getElementById('out-cpp').innerText = (cashYieldPerMile * 100).toFixed(2) + '¢';
-                document.getElementById('out-points-lost').innerText = Math.round(miles).toLocaleString();
-                
-                document.getElementById('out-cash-pqp-total').innerText = `+${passengerCashPqpEarned.toLocaleString()} PQP`;
-                document.getElementById('out-award-pqp-total').innerText = `+${passengerAwardPqpEarned.toLocaleString()} PQP`;
-                document.getElementById('out-gifted-pqp-msg').innerText = `Cash Path: +${passengerCashPqpEarned} PQP | Award Path: +${passengerAwardPqpEarned} PQP`;
-
-                document.getElementById('summary-cash-path').innerText = '$' + reimbursement.toFixed(2);
-                document.getElementById('summary-award-path').innerText = '$' + (miles * currentUAMileValueConstant).toFixed(2);
-
-                updateGaugeMeterPosition(cashYieldPerMile, currentUAMileValueConstant);
-
-                let familyDelta = Math.abs(reimbursement - (miles * currentUAMileValueConstant));
-                
-                if (familyDelta <= 25) {
-                    title.innerText = "STRATEGIC TOSS-UP";
-                    desc.innerText = `The reimbursement yield matches your pool valuation closely (within $25 margin). Proceed based on immediate household cash preferences.`;
-                    icon.innerText = "⚖️";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-slate-800 border-slate-600 text-slate-300 shadow-lg shadow-slate-950/20";
-                } else if (cashYieldPerMile >= (currentUAMileValueConstant * 1.5)) { 
-                    title.innerText = "ABSOLUTE REDEMPTION SLAM-DUNK";
-                    desc.innerText = `Outstanding out-of-pocket exchange target liquidating at an elite valuation tier of ${(cashYieldPerMile*100).toFixed(2)}¢/mile.`;
-                    icon.innerText = "🔥🤝";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-emerald-900 to-teal-900 border-emerald-400 text-emerald-200 shadow-xl shadow-emerald-950";
-                } else if (cashYieldPerMile <= (currentUAMileValueConstant * 0.5)) { 
-                    title.innerText = "ABSOLUTE VALUE BLOCK";
-                    desc.innerText = `The exchange efficiency is an extreme loss (${(cashYieldPerMile*100).toFixed(2)}¢/mile). Decline the swipe trade immediately.`;
-                    icon.innerText = "🛑";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-rose-950 to-red-900 border-red-500 text-red-200 shadow-xl shadow-rose-950";
-                } else if (cashYieldPerMile >= currentUAMileValueConstant) {
-                    title.innerText = "PROCEED WITH AWARD";
-                    desc.innerText = `Excellent trade! Your miles are being purchased at ${(cashYieldPerMile*100).toFixed(2)}¢ each.`;
-                    icon.innerText = "💰🤝";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-emerald-950/40 border-emerald-500/40 text-emerald-300 shadow-lg shadow-emerald-900/10";
-                } else {
-                    title.innerText = "DECLINE TRANSACTION";
-                    desc.innerText = `Poor mileage yield (${(cashYieldPerMile*100).toFixed(2)}¢/mile). Protect your pool stash and pass on the ticket trade.`;
-                    icon.innerText = "🛑";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-amber-950/40 border-amber-500/40 text-amber-300 shadow-lg shadow-amber-900/10";
-                }
-
-            } else {
-                let pqpPct = Math.min((currentPQP / targetPQP) * 100, 100);
-                let yearElapsedPct = getYearElapsedPercentage();
-
-                let awardPqpFromFlight = Math.round(miles / 100);
-                let awardPqpFromCard = Math.round(awardTaxes / 15); 
-                let totalAwardPathPQP = awardPqpFromFlight + awardPqpFromCard;
-                let totalAwardMilesEarned = awardTaxes * 6; 
-
-                let netPointsLostIfCash = totalCashMilesEarned - totalAwardMilesEarned;
-
-                document.getElementById('out-cash-pqp-total').innerText = `+${totalCashPathPQP.toLocaleString()} PQP`;
-                document.getElementById('out-award-pqp-total').innerText = `+${totalAwardPathPQP.toLocaleString()} PQP`;
-
-                let urgencyMultiplier = 1.0;
-                if (pqpPct < (yearElapsedPct * 100) && pqpPct < 100) {
-                    urgencyMultiplier = 1.25; 
-                }
-
-                let pointsLostValue = netPointsLostIfCash * currentUAMileValueConstant;
-                let netCashCost = totalCashPathOutofPocket - pointsLostValue;
-                let netAwardCost = awardTaxes + (miles * currentUAMileValueConstant);
-                
-                let cpp = miles > 0 ? (totalCashPathOutofPocket - awardTaxes) / miles : 0;
-                let adjustedTargetVal = currentUAMileValueConstant * urgencyMultiplier;
-
-                document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
-                document.getElementById('out-points-lost').innerText = Math.round(netPointsLostIfCash).toLocaleString();
-                document.getElementById('summary-cash-path').innerText = '$' + netCashCost.toFixed(2);
-                document.getElementById('summary-award-path').innerText = '$' + netAwardCost.toFixed(2);
-
-                updateGaugeMeterPosition(cpp, currentUAMileValueConstant);
-
-                let financialSpread = Math.abs(netCashCost - netAwardCost);
-
-                if (cpp >= (currentUAMileValueConstant * 1.5)) {
-                    title.innerText = "ABSOLUTE REDEMPTION SLAM-DUNK";
-                    desc.innerText = `Phenomenal value play logging an elite efficiency metric of ${(cpp*100).toFixed(2)}¢/mile. Lock down the award flight immediately!`;
-                    icon.innerText = "🔥 ✈️";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-emerald-900 to-teal-900 border-emerald-400 text-emerald-200 shadow-xl shadow-emerald-950";
-                } else if (cpp <= (currentUAMileValueConstant * 0.5)) {
-                    title.innerText = "ABSOLUTE VALUE BLOCK";
-                    desc.innerText = `Redemption yield is extremely low (${(cpp*100).toFixed(2)}¢/mile). Protect your mileage vaults and switch to a card cash swipe instead.`;
-                    icon.innerText = "🛑 💵";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-rose-950 to-red-900 border-red-500 text-red-200 shadow-xl shadow-rose-950";
-                } else if (financialSpread <= 25 && urgencyMultiplier === 1.0) {
-                    title.innerText = "STRATEGIC TOSS-UP";
-                    desc.innerText = `The financial spread is negligible ($${financialSpread.toFixed(2)} delta). Both paths deliver virtually equal efficiency. Choose based on cash preference vs mileage pool size.`;
-                    icon.innerText = "⚖️";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-slate-800 border-slate-600 text-slate-300 shadow-lg shadow-slate-950/20";
-                } else if (cpp >= adjustedTargetVal) {
-                    title.innerText = "BURN MILES";
-                    desc.innerText = `Excellent redemption value. Plus, you pull down +${totalAwardPathPQP} PQP from the award tracking matrix.`;
-                    icon.innerText = "🔥 ✈️";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-emerald-950/40 border-emerald-500/40 text-emerald-300 shadow-lg shadow-emerald-900/10";
-                } else {
-                    title.innerText = "PAY WITH CASH";
-                    desc.innerText = urgencyMultiplier > 1.0 
-                        ? `Status Pacing Alert! Your account progression requires locking down maximum cash path volume (+${totalCashPathPQP} PQP).` 
-                        : `Poor redemption yield. Pay with cash to stack maximum tier returns.`;
-                    icon.innerText = "💵";
-                    banner.className = "p-4 rounded-xl text-center mb-6 border bg-amber-950/40 border-amber-500/40 text-amber-300 shadow-lg shadow-amber-900/10";
-                }
-            }
-        }
-
-        function calculateHotel() {
-            let baseRate = parseFloat(document.getElementById('hotel-base').value) || 0;
-            let taxesFees = parseFloat(document.getElementById('hotel-taxes').value) || 0;
-            let totalHotelCash = baseRate + taxesFees;
-            let points = parseFloat(document.getElementById('hotel-points').value) || 0;
-
-            const banner = document.getElementById('verdict-banner');
-            const title = document.getElementById('verdict-title');
-            const desc = document.getElementById('verdict-desc');
-            const icon = document.getElementById('verdict-icon');
-
-            if (baseRate === 0 || points === 0) {
-                title.innerText = "Awaiting Inputs";
-                desc.innerText = "Enter complete card details to generate vector decision matrix.";
-                icon.innerText = "🏨";
-                banner.className = "p-4 rounded-xl text-center mb-6 border border-gray-700 bg-gray-800/40 text-gray-400";
-                document.getElementById('out-cpp').innerText = "0.00¢";
-                document.getElementById('out-points-lost').innerText = "0";
-                document.getElementById('summary-cash-path').innerText = "$0.00";
-                document.getElementById('summary-award-path').innerText = "$0.00";
-                updateGaugeMeterPosition(0, defaultMarriottPtVal);
-                return;
-            }
-
-            let currentMarriottPointValueConstant = getMarriottPtVal();
-
-            let pointsFromBaseRoomRate = baseRate * 17.5; 
-            let pointsFromCreditCardSwipe = totalHotelCash * 6; 
-            let totalPointsEarnedIfCash = pointsFromBaseRoomRate + pointsFromCreditCardSwipe;
-
-            let pointsLostValue = totalPointsEarnedIfCash * currentMarriottPointValueConstant;
-            let netCashCost = totalHotelCash - pointsLostValue;
-            let netAwardCost = points * currentMarriottValueConstant;
-            
-            let cpp = points > 0 ? totalHotelCash / points : 0;
-
-            document.getElementById('out-cpp').innerText = (cpp * 100).toFixed(2) + '¢';
-            document.getElementById('out-points-lost').innerText = Math.round(totalPointsEarnedIfCash).toLocaleString();
-            document.getElementById('summary-cash-path').innerText = '$' + netCashCost.toFixed(2);
-            document.getElementById('summary-award-path').innerText = '$' + netAwardCost.toFixed(2);
-
-            updateGaugeMeterPosition(cpp, currentMarriottPointValueConstant);
-
-            let hotelSpread = Math.abs(netCashCost - netAwardCost);
-
-            if (hotelSpread <= 25) {
-                title.innerText = "STRATEGIC TOSS-UP";
-                desc.innerText = `Net financial gap is a dead-heat ($${hotelSpread.toFixed(2)} spread). Choose freely based on your preference to hoard points or preserve cash fluidities.`;
-                icon.innerText = "⚖️";
-                banner.className = "p-4 rounded-xl text-center mb-6 border bg-slate-800 border-slate-600 text-slate-300 shadow-lg shadow-slate-950/20 font-bold";
-            } else if (cpp >= (currentMarriottPointValueConstant * 1.5)) {
-                title.innerText = "ABSOLUTE REDEMPTION SLAM-DUNK";
-                desc.innerText = `Phenomenal luxury yield return operating at an elite efficient tier of ${(cpp*100).toFixed(2)}¢/point. Redeem immediately!`;
-                icon.innerText = "🔥 🏨";
-                banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-emerald-900 to-teal-900 border-emerald-400 text-emerald-200 shadow-xl shadow-emerald-950";
-            } else if (cpp <= (currentMarriottPointValueConstant * 0.5)) { 
-                title.innerText = "ABSOLUTE VALUE BLOCK";
-                desc.innerText = `Extreme asset loss execution at ${(cpp*100).toFixed(2)}¢/point. Switch to a cash spend path transaction to leverage your 6x card and status metrics.`;
-                icon.innerText = "🛑 💵";
-                banner.className = "p-4 rounded-xl text-center mb-6 border bg-gradient-to-r from-rose-950 to-red-900 border-red-500 text-red-200 shadow-xl shadow-rose-950";
-            } else if (cpp >= currentMarriottPointValueConstant) {
-                title.innerText = "BURN MILES";
-                desc.innerText = currentUser === 'greg'
-                    ? `Excellent value. Your points yield is higher than your baseline target of ${(currentMarriottPointValueConstant*100).toFixed(2)}¢.`
-                    : `Excellent value. Burns points safely. Award stays preserve your Titanium Night accrual toward re-earning your annual status threshold.`;
-                icon.innerText = "🔥 🏨";
-                banner.className = "p-4 rounded-xl text-center mb-6 border bg-emerald-950/40 border-emerald-500/40 text-emerald-300 shadow-lg shadow-emerald-900/10";
-            } else {
-                title.innerText = "PAY WITH CASH";
-                desc.innerText = currentUser === 'greg'
-                    ? `Poor redemption yield. Pay cash to protect your points bank.`
-                    : `Poor redemption yield. Pull out your card to capture that 23.5x multiplier vector. You still bank the mandatory Elite Night credits either way.`;
-                icon.innerText = "💵";
-                banner.className = "p-4 rounded-xl text-center mb-6 border bg-amber-950/40 border-amber-500/40 text-amber-300 shadow-lg shadow-amber-900/10";
-            }
-        }
-
-        window.onload = function() {
-            let storedUABaseline = localStorage.getItem('cfg_ua_mile_val');
-            let storedMarriottBaseline = localStorage.getItem('cfg_marriott_pt_val');
-
-            if (storedUABaseline !== null) {
-                document.getElementById('input-ua-val').value = storedUABaseline;
-            }
-            if (storedMarriottBaseline !== null) {
-                document.getElementById('input-marriott-val').value = storedMarriottBaseline;
-            }
-
-            switchUser('greg');
-        };
+        // Placeholder scripts for logic execution
+        function switchUser(u) { currentUser = u; }
+        function switchTab(t) { currentTab = t; }
+        function toggleFlightPassengerView() { /* logic here */ }
+        function toggleHotelGuestView() { /* logic here */ }
+        function calculateFlight() { /* flight math */ }
+        function calculateHotel() { /* hotel math */ }
     </script>
 </body>
 </html>
