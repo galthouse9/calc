@@ -28,6 +28,34 @@
             </div>
         </header>
 
+        <div class="bg-gray-950/60 rounded-2xl p-4 mb-6 border border-gray-800 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div id="cfg-card-greg" class="p-3 rounded-xl border border-blue-500/30 bg-blue-950/10 transition-all">
+                <div class="font-bold text-blue-400 flex items-center gap-1.5 mb-1">
+                    <span>👤 Greg's Profile Rules</span>
+                    <span class="px-1.5 py-0.5 bg-blue-900/40 text-[10px] text-blue-300 rounded border border-blue-700/30">Active</span>
+                </div>
+                <ul class="space-y-1 text-gray-400 font-mono text-[11px]">
+                    <li>• UA Status: <span class="text-white">Premier 1K (11x Miles)</span></li>
+                    <li>• UA Card: <span class="text-white">United Club Card (6x Miles, 1 PQP/$15)</span></li>
+                    <li>• UA Target: <span class="text-white">22,000 PQP & 60 PQF Matrix</span></li>
+                    <li>• Marriott Status: <span class="text-white">Lifetime Titanium (17.5x Base, 6x Card)</span></li>
+                </ul>
+            </div>
+            
+            <div id="cfg-card-sarah" class="p-3 rounded-xl border border-gray-800 bg-gray-900/20 transition-all opacity-50">
+                <div class="font-bold text-purple-400 flex items-center gap-1.5 mb-1">
+                    <span>👤 Sarah's Profile Rules</span>
+                    <span id="cfg-tag-sarah" class="hidden px-1.5 py-0.5 bg-purple-900/40 text-[10px] text-purple-300 rounded border border-purple-700/30">Active</span>
+                </div>
+                <ul class="space-y-1 text-gray-400 font-mono text-[11px]">
+                    <li>• UA Status: <span class="text-white">Premier 1K (11x Miles)</span></li>
+                    <li>• UA Card: <span class="text-white">United Club Card (6x Miles, 1 PQP/$15)</span></li>
+                    <li>• UA Target: <span class="text-white">28,000 Pure PQP Skipping Segments</span></li>
+                    <li>• Marriott Status: <span class="text-white">Annual Titanium (Requires 75 Nights/Yr)</span></li>
+                </ul>
+            </div>
+        </div>
+
         <div id="status-progress-banner" class="bg-gray-800 rounded-2xl p-5 mb-8 border border-gray-700/50 grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
             <div>
                 <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wider"><span id="lbl-banner-name">Greg</span>'s 1K Status Velocity</h3>
@@ -209,30 +237,44 @@
 
     <script>
         let currentTab = 'flight';
-        let currentUser = 'greg'; // Default Profile State
+        let currentUser = 'greg'; // Master Default State
 
+        // --- GLOBAL HARDCODED VALUATION CONFIGURATIONS ---
+        // If United or Marriott overhaul point baseline pricing, alter these thresholds
         const UA_MILE_VAL = 0.0135; 
         const MARRIOTT_PT_VAL = 0.0085; 
+
+        // Profile Targets System Constants
+        const TARGET_PQP_GREG = 22000;
+        const TARGET_PQF_GREG = 60;
+        const TARGET_PQP_SARAH = 28000; // Pure PQP tracking vector skipping segments
 
         function switchUser(user) {
             currentUser = user;
             const btnGreg = document.getElementById('user-btn-greg');
             const btnSarah = document.getElementById('user-btn-sarah');
             
+            const cfgGreg = document.getElementById('cfg-card-greg');
+            const cfgSarah = document.getElementById('cfg-card-sarah');
+            const tagSarah = document.getElementById('cfg-tag-sarah');
+
             const pqfProgressBlock = document.getElementById('pqf-progress-block');
             const subInputPqfBlock = document.getElementById('sub-input-pqf-block');
             const segmentInputCard = document.getElementById('flight-pqf-input').parentElement;
 
-            // Update Header Buttons UI
+            // Overhaul Profile Panels Configuration States
             if (user === 'greg') {
                 btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-blue-600 text-white shadow transition-all";
                 btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
                 
-                // Greg Configuration: 22,000 PQP + 60 PQF Goals
+                cfgGreg.className = "p-3 rounded-xl border border-blue-500/40 bg-blue-950/20 transition-all opacity-100 shadow-md";
+                cfgSarah.className = "p-3 rounded-xl border border-gray-800 bg-gray-900/10 transition-all opacity-40";
+                tagSarah.classList.add('hidden');
+
                 document.getElementById('lbl-banner-name').innerText = "Greg";
                 document.getElementById('lbl-input-name').innerText = "Greg";
-                document.getElementById('lbl-banner-desc').innerText = "Factoring in targets of 22,000 PQP & 60 PQF";
-                document.getElementById('txt-target-pqp').innerText = "22,000";
+                document.getElementById('lbl-banner-desc').innerText = `Factoring in targets of ${TARGET_PQP_GREG.toLocaleString()} PQP & ${TARGET_PQF_GREG} PQF`;
+                document.getElementById('txt-target-pqp').innerText = TARGET_PQP_GREG.toLocaleString();
                 document.getElementById('lbl-marriott-status-tag').innerText = "23.5x Earning Rate Locked (Lifetime Titanium)";
                 
                 pqfProgressBlock.classList.remove('hidden');
@@ -242,20 +284,21 @@
                 btnSarah.className = "px-4 py-1.5 text-xs font-bold rounded-xl bg-purple-600 text-white shadow transition-all";
                 btnGreg.className = "px-4 py-1.5 text-xs font-bold rounded-xl text-gray-400 hover:text-gray-200 transition-all";
                 
-                // Sarah Configuration: 28,000 PQP Pure Track (No PQF needed)
+                cfgSarah.className = "p-3 rounded-xl border border-purple-500/40 bg-purple-950/20 transition-all opacity-100 shadow-md";
+                cfgGreg.className = "p-3 rounded-xl border border-gray-800 bg-gray-900/10 transition-all opacity-40";
+                tagSarah.classList.remove('hidden');
+
                 document.getElementById('lbl-banner-name').innerText = "Sarah";
                 document.getElementById('lbl-input-name').innerText = "Sarah";
-                document.getElementById('lbl-banner-desc').innerText = "Factoring in Pure PQP Track Target of 28,000 PQP";
-                document.getElementById('txt-target-pqp').innerText = "28,000";
-                document.getElementById('lbl-marriott-status-tag').innerText = "23.5x Earning Rate Locked (Annual Titanium)";
+                document.getElementById('lbl-banner-desc').innerText = `Factoring in Pure PQP Track Target of ${TARGET_PQP_SARAH.toLocaleString()} PQP`;
+                document.getElementById('txt-target-pqp').innerText = TARGET_PQP_SARAH.toLocaleString();
+                document.getElementById('lbl-marriott-status-tag').innerText = "23.5x Earning Rate Locked (Annual Titanium Status)";
                 
-                // Hide segments from map layout overview for Sarah's tracking flow
                 pqfProgressBlock.classList.add('hidden');
                 subInputPqfBlock.classList.add('hidden');
                 segmentInputCard.classList.add('hidden');
             }
 
-            // Load values saved to local memory streams for this specific user profile
             loadUserProfileValues();
             
             if (currentTab === 'flight') {
@@ -363,7 +406,7 @@
                     segmentRow.classList.remove('hidden');
                     document.getElementById('lbl-segments-delta').innerText = "Segments Logged:";
                 } else {
-                    segmentRow.classList.add('hidden'); // Sarah ignores PQF map tracking
+                    segmentRow.classList.add('hidden'); 
                 }
             }
             calculateFlight();
@@ -377,32 +420,27 @@
             let passengerType = document.getElementById('flight-passenger-type').value;
 
             let segments = 0;
-            if (currentUser === 'greg') {
-                let segmentsInput = document.getElementById('flight-pqf-input');
-                segments = parseInt(segmentsInput.value) || 0;
-                if (segments < 1) segments = 1;
-                if (segments > 7) segments = 7;
-            }
+            let segmentsInput = document.getElementById('flight-pqf-input');
+            segments = parseInt(segmentsInput.value) || 0;
+            if (segments < 1) segments = 1;
+            if (segments > 7) segments = 7;
 
             const banner = document.getElementById('verdict-banner');
             const title = document.getElementById('verdict-title');
             const desc = document.getElementById('verdict-desc');
             const icon = document.getElementById('verdict-icon');
 
-            // Fetch target parameters based on active profile map
-            let targetPQP = currentUser === 'greg' ? TARGET_PQP : 28000;
-
+            let targetPQP = currentUser === 'greg' ? TARGET_PQP_GREG : TARGET_PQP_SARAH;
             let currentPQP = parseFloat(document.getElementById('user-pqp').value) || 0;
             let currentPQF = currentUser === 'greg' ? (parseInt(document.getElementById('user-pqf').value) || 0) : 0;
 
-            // Save entries dynamically into user specific localized memory slots
             let prefix = currentUser === 'greg' ? 'greg_' : 'sarah_';
             localStorage.setItem(prefix + 'ytd_pqp', currentPQP);
             if (currentUser === 'greg') {
                 localStorage.setItem(prefix + 'ytd_pqf', currentPQF);
             }
 
-            // --- 1. GENERAL CASH PATH METRICS ---
+            // --- REVENUE CASH VECTOR CALCULATIONS (11x Elite Status + 6x Credit Card Spend) ---
             let cashMilesFromFare = fare * 11; 
             let cashMilesFromCard = totalCashCost * 6; 
             let totalCashMilesEarned = cashMilesFromFare + cashMilesFromCard;
@@ -411,7 +449,6 @@
             let cashPqpFromCard = Math.round(totalCashCost / 15); 
             let totalCashPathPQP = cashPqpFromFlight + cashPqpFromCard;
 
-            // --- 2. SWITCH LOGIC MODES ---
             if (passengerType === 'family') {
                 let reimbursement = parseFloat(document.getElementById('flight-reimbursement').value) || 0;
                 let trueCashProfit = reimbursement - taxesFees; 
@@ -425,7 +462,7 @@
                 document.getElementById('out-cash-pqp-total').innerText = `+${totalCashPathPQP.toLocaleString()} PQP`;
                 document.getElementById('out-award-pqp-total').innerText = `+${yourAwardCardPqp.toLocaleString()} PQP`;
                 
-                document.getElementById('out-gifted-pqp-msg').innerText = `+${giftedFlightPqp.toLocaleString()} PQP & +${document.getElementById('flight-pqf-input').value} PQF`;
+                document.getElementById('out-gifted-pqp-msg').innerText = `+${giftedFlightPqp.toLocaleString()} PQP & +${segments} PQF`;
 
                 document.getElementById('summary-cash-path').innerText = '$' + reimbursement.toFixed(2);
                 document.getElementById('summary-award-path').innerText = '$' + (miles * UA_MILE_VAL).toFixed(2);
@@ -443,14 +480,13 @@
                 }
 
             } else {
-                // SELF FLYING TRACK METRICS
                 document.getElementById('txt-current-pqp').innerText = currentPQP.toLocaleString();
                 let pqpPct = Math.min((currentPQP / targetPQP) * 100, 100);
                 document.getElementById('bar-pqp').style.width = pqpPct + '%';
 
                 if (currentUser === 'greg') {
                     document.getElementById('txt-current-pqf').innerText = currentPQF.toLocaleString();
-                    let pqfPct = Math.min((currentPQF / TARGET_PQF) * 100, 100);
+                    let pqfPct = Math.min((currentPQF / TARGET_PQF_GREG) * 100, 100);
                     document.getElementById('bar-pqf').style.width = pqfPct + '%';
                     document.getElementById('out-pqf').innerText = `Both Paths Log +${segments} PQF`;
                 }
@@ -465,7 +501,7 @@
                 document.getElementById('out-cash-pqp-total').innerText = `+${totalCashPathPQP.toLocaleString()} PQP`;
                 document.getElementById('out-award-pqp-total').innerText = `+${totalAwardPathPQP.toLocaleString()} PQP`;
 
-                // Automated Calendar Year Tracking Engine Pacing
+                // Automated Calendar Pacing System
                 let now = new Date();
                 let start = new Date(now.getFullYear(), 0, 1);
                 let diff = now - start;
@@ -473,13 +509,9 @@
                 let dayOfYear = Math.floor(diff / oneDay);
                 let yearElapsedPct = dayOfYear / 365;
 
-                // Urgency calculation mapping out separate criteria based on profile rules
-                let statusProgressPct = 0;
-                if (currentUser === 'greg') {
-                    statusProgressPct = Math.min(currentPQP / targetPQP, currentPQF / TARGET_PQF);
-                } else {
-                    statusProgressPct = currentPQP / targetPQP; // Sarah is pure PQP volume pacing
-                }
+                let statusProgressPct = currentUser === 'greg' 
+                    ? Math.min(currentPQP / targetPQP, currentPQF / TARGET_PQF_GREG)
+                    : currentPQP / targetPQP; 
                 
                 let urgencyMultiplier = 1.0;
                 if (statusProgressPct < yearElapsedPct && statusProgressPct < 1.0) {
@@ -520,6 +552,7 @@
             let totalHotelCash = baseRate + taxesFees;
             let points = parseFloat(document.getElementById('hotel-points').value) || 0;
 
+            // MARRIOTT CASH PATH EQUATIONS (10x Base + 7.5x Status Bonus + 6x Credit Card Folio Spend)
             let pointsFromBase = baseRate * 17.5;
             let pointsFromCard = totalHotelCash * 6;
             let totalPointsEarnedIfCash = pointsFromBase + pointsFromCard;
@@ -557,7 +590,6 @@
         }
 
         window.onload = function() {
-            // Read active account profile on fresh window mount
             switchUser('greg');
         };
     </script>
